@@ -29,11 +29,12 @@ override.tf.json
 # example: *tfplan*
 
 *.zip
-*/keys/*
+keys/*
 .env
 *.json
 *.DS_Store
 __pycache__
+*/.cache
 
 .terraform*
 terraform.*
