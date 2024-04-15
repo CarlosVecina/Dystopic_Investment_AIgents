@@ -30,6 +30,7 @@ override.tf.json
 
 *.zip
 */keys/*
+.env
 *.json
 *.DS_Store
 __pycache__
@@ -37,8 +38,7 @@ __pycache__
 .terraform*
 terraform.*
 
-.env
-keys/*
+*/mage_data/*
 
 # Default .gitignore content added by dbt Cloud# you shouldn't commit these into source control
 # these are the default directory names, adjust/add to fit your needs
