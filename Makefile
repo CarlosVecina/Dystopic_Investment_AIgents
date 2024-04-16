@@ -1,4 +1,4 @@
-.PHONY: mage-terraform-apply  mage-terraform-destroy start-mage export-requirements
+.PHONY: mage-terraform-apply  mage-terraform-destroy start-project generate-mage-requirements
 
 mage-terraform-apply:
 	cd src/data_ingestion/mage_terraform/ 
@@ -8,9 +8,9 @@ mage-terraform-destroy:
 	cd src/data_ingestion/mage_terraform/ 
 	terraform destroy
 
-start-mage:
-	docker build . -f Dockerfile --no-cache
+start-project:
+	docker build . -t mage -f Dockerfile
 	docker compose up
 
-generate-requirements:
+generate-mage-requirements:
 	poetry export -f requirements.txt --output requirements.txt

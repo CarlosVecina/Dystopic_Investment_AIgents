@@ -20,6 +20,9 @@ websockets = "10"
 kafka-python = "^2.0.2"
 
 
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.4"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
