@@ -1,0 +1,1 @@
+LOCAL_KAFKA_SERVER = "localhost:9092"
