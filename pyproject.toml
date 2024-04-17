@@ -18,10 +18,19 @@ nbformat = "^5.10.3"
 #pydantic = "^2.6.4"
 websockets = "10"
 kafka-python = "^2.0.2"
+pydantic = "^2.7.0"
+rel = "^0.4.9.9"
 
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.4"
+
+[tool.poetry.group.scrape.dependencies]
+beautifulsoup4 = "*"
+pandas = "*"
+selenium = "*"
+webdriver-manager = "*"
+undetected-chromedriver = "*"
 
 [build-system]
 requires = ["poetry-core"]
