@@ -1,10 +1,11 @@
+import os
+import dotenv
 from kafka.admin import KafkaAdminClient, NewTopic
 
-from src.data_ingestion.configs import LOCAL_KAFKA_SERVER
-
+dotenv.load_dotenv()
 
 admin_client = KafkaAdminClient(
-    bootstrap_servers=LOCAL_KAFKA_SERVER, 
+    bootstrap_servers=os.environ["LOCAL_BOOSTRAP_SERVER"], 
 )
 
 topic_list = []
