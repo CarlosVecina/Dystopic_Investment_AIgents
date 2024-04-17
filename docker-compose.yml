@@ -103,6 +103,22 @@ services:
     networks:
       - my-net
 
+  ingestion-news:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile_ingestion
+    depends_on:
+      kafka:
+        condition: service_healthy
+    command: make start-websocket-kafka-producer
+    container_name: ingestion-news
+    restart: always
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:29092
+    networks:
+      - my-net
+
 networks:
   my-net:
     external: true
