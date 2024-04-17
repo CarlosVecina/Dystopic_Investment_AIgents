@@ -1,6 +1,5 @@
 import argparse
 import time
-from utils import get_driver
 from bs4 import BeautifulSoup
 import sqlite3
 import datetime as dt
@@ -13,7 +12,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import numpy as np
 
-import undetected_chromedriver as uc
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
@@ -217,11 +215,6 @@ class InvestmentFirm(DriverConn):
 
 
 if __name__ == "__main__":
-    #_list = ['velca', 'return', 'klarna', 'aplazame', 'malferida', 'onbeams'
-    #        'spotify', 'supercell', 'space-exploration-technologies', 'lime', 'internxt',
-    #        'onbeams', 'cabify'
-    #        ]
-
     parser=argparse.ArgumentParser()
 
     parser.add_argument("--sec_sleep", help="Do the bar option", default=5)
@@ -230,6 +223,10 @@ if __name__ == "__main__":
     args=parser.parse_args()
     
 
+    #_list = ['velca', 'return', 'klarna', 'aplazame', 'malferida', 'onbeams'
+    #        'spotify', 'supercell', 'space-exploration-technologies', 'lime', 'internxt',
+    #        'onbeams', 'cabify'
+    #        ]
     _list = []
     list_organizations = []
     for name in _list:
