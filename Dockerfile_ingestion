@@ -1,0 +1,29 @@
+FROM python:3.10-slim-bullseye
+
+ARG USER_CODE_PATH=/home/
+ARG POETRY_VERSION=1.7.1
+ARG PYTHON_VERSION=3.10
+
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
+    make \
+    gcc \
+	g++ \
+	libc6-dev
+
+RUN mkdir -p {USER_CODE_PATH} \
+    && pip3 install --no-cache-dir poetry==${POETRY_VERSION}
+
+COPY ./src ${USER_CODE_PATH}src/
+COPY ./Makefile ${USER_CODE_PATH}Makefile
+COPY ./pyproject.toml ${USER_CODE_PATH}pyproject.toml
+COPY ./poetry.lock ${USER_CODE_PATH}poetry.lock
+COPY ./.env ${USER_CODE_PATH}.env 
+
+COPY --chown=${USER_CODE_PATH}:${USER_CODE_PATH} poetry.lock pyproject.toml README.md Makefile \
+	${USER_CODE_PATH}
+
+WORKDIR /home/
+
+RUN poetry env use ${PYTHON_VERSION} \
+    && make install-env
