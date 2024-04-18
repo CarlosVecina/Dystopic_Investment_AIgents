@@ -1,4 +1,12 @@
-.PHONY: mage-terraform-apply  mage-terraform-destroy start-project install-env generate-mage-requirements run-crunchbase-scraper
+.PHONY: data-lake-terraform-apply data-lake-terraform-destroy mage-terraform-apply  mage-terraform-destroy start-project install-env generate-mage-requirements run-crunchbase-scraper
+
+data-lake-terraform-apply:
+	cd src/data_ingestion/terraform/data_lake_terraform/ 
+	terraform apply
+
+data-lake-terraform-destroy:
+	cd src/data_ingestion/terraform/data_lake_terraform/ 
+	terraform apply
 
 generate-mage-requirements:
 	poetry export -f requirements.txt --output requirements.txt
