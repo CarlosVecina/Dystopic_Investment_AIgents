@@ -2,7 +2,9 @@
 
 Dystopic stock &amp; investment indexes 📈 managed by AI agents 🤖.
 
-The project is composed by two main pieces, base data-ingestion and agents. The **final project for Data Engineering Zoomcamp consist in the Data Ingestion & transformation part**. For that, we need different information sources as:
+Welcome to Dystopic Investment AIgents, where dystopic stock and investment indexes are managed by AI agents. Our project is an innovative endeavor that combines data engineering with artificial intelligence to provide insights and manage investments in a dystopian-themed environment.
+
+The project is composed by two main components: data ingestion and AI agents. This README focuses on **the Data Ingestion & transformation, which is the final project for Data Engineering Zoomcamp**. For that, we need different information sources as:
 - Stock prices
 - Market news (both for traded stocks & pre-IPO startups)
 - Startup platforms (for now implemented Crunchbase)
@@ -20,7 +22,8 @@ Monitoring data ingestion & modelling: [Looker Dashboard](https://lookerstudio.g
 
 ![Looker screen](./imgs/looker_screen.png)
 
-Here we have an screenshot of this project running Docker containers:
+
+Here we have an screenshot of this project running Docker containers. They are defined in the `docker-compose` file, while two Docker images are created in `Dockerfile` and `Dockerfile_ingestion`.
 
 ![Project Doecker containers](./imgs/docker_containers.png)
 
@@ -37,6 +40,7 @@ Here we have an screenshot of this project running Docker containers:
 For now, I developed an ingestion pipeline to daily ingest Open-High-Low-Close (OHLC) stocks data prices. 
 
 It ingestes raw data from a Financial API to Google Cloud Storage. Then some models are created in Google Big Query partitioned by date and clustered by ticker to easier and cost effective retrieval.
+With Mage, a backfill run has been done, to recreate the historical prices since Jan 2022.
 
 - **News feeds (Batch with Mage and streaming with Kafka events):**
 
@@ -52,6 +56,20 @@ We are able to get main information regarding raised rounds, number of employees
 It is a temporal PoC workaround as they have a paid API to get all this info and much more.
 
 ### 🛠 Development
+
+This projects makes use of Python 3.10 and manages dependencies with Poetry. Also, some useful Make shortcut commands have been added.
+If you want to interact with any piece of code not dockerized or in the Makefile commands, you should activate Poetry virtual env.
+
+Make sure you have Poetry and Python 3.10 installed beforehand, then:
+
+`poetry env use 3.10`
+
+`poetry install`
+
+`poetry shell` / `poetry run python ....`
+
+The project can be launched both in local (Docker containers + GCloud connections) and in cloud (Terraformed GoogleStorage, GoogleBQ and Cloud Run). More details can be found in the next section.
+
 
 **In local**
 
@@ -85,6 +103,6 @@ Google Big Query screenshot:
 
 <br>
 
-## Agents
+## 🕵️🕵️Agents
 
-[TBD]
+[TBD] Outside Data Eng Zoomcamp scope.
