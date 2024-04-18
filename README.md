@@ -9,15 +9,25 @@ The project is composed by two main pieces, base data-ingestion and agents. The 
 - Financial reports (TBD)
 - Newsletters & social feeds (TBD)
 
+Here we can find a summary diagram of the project components:
+
+![Data ingestion](./imgs/data_ingestion.png)
+
+
 **[NOTE]** In recent days, my free trial of the GCP has been terminated. The project will remain inactive until the migration is completed, so I'm attaching some screenshots.
 
 Monitoring data ingestion & modelling: [Looker Dashboard](https://lookerstudio.google.com/s/qK5FsFOEH7A)
 
 ![Looker screen](./imgs/looker_screen.png)
 
+Here we have an screenshot of this project running Docker containers:
+
+![Project Doecker containers](./imgs/docker_containers.png)
+
+
 <br>
 
-## Data ingestion (Orchestated load and transform with Mage AI)
+## ➡️☁️ Data ingestion (Orchestated load and transform with Mage AI)
 
 ![Mage dags](./imgs/mage_dags.png)
 
@@ -71,7 +81,7 @@ Google Cloud Storage data lake screenshot:
 
 Google Big Query screenshot:
 
-![Kafka UI](./imgs/google_big_query.png.png)
+![Kafka UI](./imgs/google_big_query.png)
 
 <br>
 
