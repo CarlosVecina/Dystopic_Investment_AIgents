@@ -11,31 +11,35 @@ The project is composed by two main components: data ingestion and AI agents. Th
 - Financial reports (TBD)
 - Newsletters & social feeds (TBD)
 
-Here we can find a summary diagram of the project components:
+<br>
+
+## ➡️☁️ Data ingestion (Orchestated load and transform with Mage AI)
+
+### Data ingestion diagram
+
+Here we can find a summary **diagram of the project components**:
 
 ![Data ingestion](./imgs/data_ingestion.png)
 
 
 **[NOTE]** In recent days, my free trial of the GCP has been terminated. The project will remain inactive until the migration is completed, so I'm attaching some screenshots.
 
-Monitoring data ingestion & modelling: [Looker Dashboard](https://lookerstudio.google.com/s/qK5FsFOEH7A)
+Monitoring data ingestion & modelling: [**Looker Dashboard**](https://lookerstudio.google.com/s/qK5FsFOEH7A)
 
 ![Looker screen](./imgs/looker_screen.png)
 
 
-Here we have an screenshot of this project running Docker containers. They are defined in the `docker-compose` file, while two Docker images are created in `Dockerfile` and `Dockerfile_ingestion`.
+Here we have an screenshot of this project **running Docker containers**. They are defined in the `docker-compose` file, while two Docker images are created in `Dockerfile` and `Dockerfile_ingestion`.
 
 ![Project Doecker containers](./imgs/docker_containers.png)
 
 
-<br>
-
-## ➡️☁️ Data ingestion (Orchestated load and transform with Mage AI)
-
 ![Mage dags](./imgs/mage_dags.png)
 
 
-- **Ticker price data:**
+### Data ingestion data sources
+
+- **Ticker price data (Batch with Mage):**
 
 For now, I developed an ingestion pipeline to daily ingest Open-High-Low-Close (OHLC) stocks data prices. 
 
@@ -44,8 +48,8 @@ With Mage, a backfill run has been done, to recreate the historical prices since
 
 - **News feeds (Batch with Mage and streaming with Kafka events):**
 
-I've implemented two kind of news consumers. The first one is an hourly financial news insertion. It ingest raw to Google Cloud Storage.
-The second one consist in a websocket that holds an open connection and acts as a Kafka producer, sending the news in Real Time through a Kafka queue to be consumed async by any service listening there. One of the listeners persists this news to Google Cloud Store. A second listener is a placeholder for an agent that may analize and perform any kind of action or analysis with that news.
+I've implemented two kind of news consumers. The **first one is an hourly financial news insertion.** It ingest raw data to Google Cloud Storage.
+**The second one consist in a websocket that holds an open connection and acts as a Kafka producer,** sending the news in Real Time through a Kafka queue to be consumed async by any service listening there. One of the listeners persists this news to Google Cloud Store. A second listener is a placeholder for an agent that may analize and perform any kind of action or analysis with that news.
 
 ![Kafka UI](./imgs/kafka_ui_news_topic.png)
 
@@ -54,6 +58,9 @@ The second one consist in a websocket that holds an open connection and acts as 
 We are able to get main information regarding raised rounds, number of employees, lead investors, company financials...
 
 It is a temporal PoC workaround as they have a paid API to get all this info and much more.
+
+![Database entities](./imgs/db_entities.png)
+
 
 ### 🛠 Development
 
@@ -64,11 +71,15 @@ Make sure you have Poetry and Python 3.10 installed beforehand, then:
 
 `poetry env use 3.10`
 
+Install de poetry.lock with:
+
 `poetry install`
+
+and activate the shell inside the virtual environment or run an specific command in that v. env:
 
 `poetry shell` / `poetry run python ....`
 
-The project can be launched both in local (Docker containers + GCloud connections) and in cloud (Terraformed GoogleStorage, GoogleBQ and Cloud Run). More details can be found in the next section.
+The project can be launched both in local (*Docker containers + GCloud connections*) and in cloud (*Terraformed GoogleStorage, GoogleBQ and Cloud Run*). More details can be found in the next section.
 
 
 **In local**
@@ -86,12 +97,19 @@ Then we are ready to start all the containers. This command will download and cr
 
 **In GCP**
 
+First of all we need to create the data lake GCStorage and GCBig Query. We can easily do that by:
+
+`make data-lake-terraform-apply`
 
 Once the data lake is created, you can start/stop the Mage ETL cloud instances with:
 
 `make mage-terraform-apply` 
 
-`make mage-terraform-destroy`
+If you want to terminate the both previous Tf deployments, you should run:
+
+`data-lake-terraform-apply` / `make mage-terraform-destroy`
+
+As a way to share the cloud resources, I've created some screenshots. There we can see the data partition by date, and the clustering by tickers during the query phase.
 
 Google Cloud Storage data lake screenshot:
 
