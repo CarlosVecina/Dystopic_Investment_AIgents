@@ -33,6 +33,7 @@ Here we have an screenshot of this project **running Docker containers**. They a
 
 ![Project Doecker containers](./imgs/docker_containers.png)
 
+All the ETLs are orchestated by Mage. Also, the consumer is also there, while the websocket with the Kafka producer is embebed in its own Docker image and running container.
 
 ![Mage dags](./imgs/mage_dags.png)
 
@@ -61,6 +62,7 @@ It is a temporal PoC workaround as they have a paid API to get all this info and
 
 ![Database entities](./imgs/db_entities.png)
 
+<br>
 
 ### 🛠 Development
 
