@@ -64,6 +64,12 @@ It is a temporal PoC workaround as they have a paid API to get all this info and
 
 <br>
 
+### Transformations
+
+For now, just simple financial indicators are performed, apart for some parsing & data sanity checks. They can be found in `transform_basic_indicators.py` and are available to be used in the Mage ETL.
+
+<br>
+
 ### 🛠 Development
 
 This projects makes use of Python 3.10 and manages dependencies with Poetry. Also, some useful Make shortcut commands have been added.
