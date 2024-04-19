@@ -91,6 +91,26 @@ and activate the shell inside the virtual environment or run an specific command
 
 The project can be launched both in local (*Docker containers + GCloud connections*) and in cloud (*Terraformed GoogleStorage, GoogleBQ and Cloud Run*). More details can be found in the next section.
 
+Note that it uses envvars or a .env file. The project is expecting the following environment variables:
+
+`ALPACA_ENDPOINT = "https://paper-api.alpaca.markets/v2"`
+`APCA_API_KEY_ID`
+`APCA_API_SECRET_KEY`
+
+For get [Alpaca Market token for free, just go to their page](https://alpaca.markets/)
+
+`POSTGRES_DBNAME = "pg-fin-data"`
+`POSTGRES_SCHEMA= "base"`
+`POSTGRES_USER= "pg"`
+`POSTGRES_PASSWORD= "pgg"`
+`POSTGRES_HOST= "localhost"`
+`POSTGRES_PORT= "5467"`
+
+`PROJECT_NAME = "dystopic-investment"`
+
+`LOCAL_BOOSTRAP_SERVER = "localhost:9092"`
+`BOOSTRAP_BROKER = "kafka:29092"`
+
 
 **In local**
 
