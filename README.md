@@ -11,6 +11,8 @@ The project is composed by two main components: data ingestion and AI agents. Th
 - Financial reports (TBD)
 - Newsletters & social feeds (TBD)
 
+We are gathering all the financial context as possible, to make it available for the agents afterwards. Some of them wouldmake use of macro data to detect investment trends and market sentiments, while others would be the owners of specific & optimized market actions with the price and micro data.
+
 <br>
 
 ## ➡️☁️ Data ingestion (Orchestated load and transform with Mage AI)
