@@ -7,7 +7,9 @@ Welcome to Dystopic Investment AIgents, where dystopic stock and investment inde
 The project is composed by two main components: data ingestion and AI agents. This README focuses on **the Data Ingestion & transformation, which is the final project for Data Engineering Zoomcamp**. For that, we need different information sources as:
 - Stock prices
 - Market news (both for traded stocks & pre-IPO startups)
-- Startup platforms (for now implemented Crunchbase)
+- Startup platforms. For now implemented:
+    - Crunchbase
+    - Product Hunt
 - Financial reports (TBD)
 - Newsletters & social feeds (TBD)
 
@@ -77,7 +79,7 @@ For now, just simple financial indicators are performed, apart for some parsing 
 This projects makes use of Python 3.10 and manages dependencies with Poetry. Also, some useful Make shortcut commands have been added.
 If you want to interact with any piece of code not dockerized or in the Makefile commands, you should activate Poetry virtual env.
 
-Make sure you have Poetry and Python 3.10 installed beforehand, then:
+Make sure **you have Poetry, Python 3.10 and Terraform** installed beforehand, then:
 
 `poetry env use 3.10`
 
@@ -94,21 +96,29 @@ The project can be launched both in local (*Docker containers + GCloud connectio
 Note that it uses envvars or a .env file. The project is expecting the following environment variables:
 
 `ALPACA_ENDPOINT = "https://paper-api.alpaca.markets/v2"`
+
 `APCA_API_KEY_ID`
+
 `APCA_API_SECRET_KEY`
 
 For get [Alpaca Market token for free, just go to their page](https://alpaca.markets/)
 
 `POSTGRES_DBNAME = "pg-fin-data"`
+
 `POSTGRES_SCHEMA= "base"`
+
 `POSTGRES_USER= "pg"`
+
 `POSTGRES_PASSWORD= "pgg"`
+
 `POSTGRES_HOST= "localhost"`
+
 `POSTGRES_PORT= "5467"`
 
 `PROJECT_NAME = "dystopic-investment"`
 
 `LOCAL_BOOSTRAP_SERVER = "localhost:9092"`
+
 `BOOSTRAP_BROKER = "kafka:29092"`
 
 
