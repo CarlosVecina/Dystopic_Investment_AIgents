@@ -1,8 +1,11 @@
+import time
 from typing import Any
 import dotenv
 import requests
 import os
 from pydantic import BaseModel
+import schedule
+import pandas as pd
 
 
 dotenv.load_dotenv()
@@ -58,6 +61,21 @@ def parse_ph_response(ph_response: dict[str, Any]) -> list[PHuntProduct]:
         product_dict["prod_topics"] = ", ".join(
             [i["node"]["name"] for i in product_dict["topics"]["edges"]]
         )
-        product_model_list.append(PHuntProduct.model_validate(product_dict))
+        product_model_list.append(PHuntProduct.parse_obj(product_dict))
 
     return product_model_list
+
+def main():
+    response = fetch_ph_posts(10)
+    product_list = parse_ph_response(response)
+
+    df = pd.DataFrame([i.model_dump() for i in product_list])
+    return df
+
+if __name__ == "__main__":
+    main()
+    schedule.every(10).minutes.do(main)
+
+    while True:
+        schedule.run_pending()
+        time.sleep(1)

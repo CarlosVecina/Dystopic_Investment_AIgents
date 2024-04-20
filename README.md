@@ -51,6 +51,15 @@ For now, I developed an ingestion pipeline to daily ingest Open-High-Low-Close (
 It ingestes raw data from a Financial API to Google Cloud Storage. Then some models are created in Google Big Query partitioned by date and clustered by ticker to easier and cost effective retrieval.
 With Mage, a backfill run has been done, to recreate the historical prices since Jan 2022.
 
+- **Product Hunt listings (Batch with Mage ETL or Docker container periodic API calls)**
+
+There is a Mage pipeline with Product Hunt API data loading, transformation to Pydantic internal models and exporting to GCStorage.
+
+This data downloading is thought to be run with Mage, it is also possible to start a Docker container calling the whole `download_product_hunt` script as main. It allows you to periodically perform API calls from the container without needing Mage ETL runs, but loosing the features it provides.
+
+![PH Mage pipeline](./imgs/ph_mage_pipeline.png)
+
+
 - **News feeds (Batch with Mage and streaming with Kafka events):**
 
 I've implemented two kind of news consumers. The **first one is an hourly financial news insertion.** It ingest raw data to Google Cloud Storage.
