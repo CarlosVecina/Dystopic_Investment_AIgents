@@ -1,0 +1,26 @@
+name: Download and insert daily prices
+
+on:
+  schedule:
+    - cron: "0 9 * * *"    #runs at 11:30 UTC everyday
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: install python packages
+        run: |
+          pip3 install --no-cache-dir poetry==1.7.1
+          poetry install
+      - name: execute script
+        env:
+          SB_DDBB_HOST: ${{ secrets.SB_DDBB_HOST }}
+          SB_DDBB_PORT: ${{ secrets.SB_DDBB_PORT }}
+          SB_DDBB_DATABASE: ${{ secrets.SB_DDBB_DATABASE }}
+          SB_DDBB_USER: ${{ secrets.SB_DDBB_USER }}
+          SB_DDBB_PWD: ${{ secrets.SB_DDBB_PWD }}
+        run: python3 -m src.data_ingestion.download_ticker_data
