@@ -83,7 +83,7 @@ if __name__ == "__main__":
     end_data = datetime.datetime.now().date().strftime("%Y-%m-%d")
     start_date = (datetime.datetime.now().date() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 
-    if args.start_date & args.end_data:
+    if args.start_date & args.end_date:
         end_data = args.end_data
         start_date = args.start_date
 
