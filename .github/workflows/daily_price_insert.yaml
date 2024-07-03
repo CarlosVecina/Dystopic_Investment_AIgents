@@ -2,7 +2,7 @@ name: Download and insert daily prices
 
 on:
   schedule:
-    - cron: "0 9 * * *"    #runs at 11:30 UTC everyday
+    - cron: "0 10 * * *"    #runs at 9:00 UTC everyday
 
 jobs:
   build:
@@ -23,4 +23,4 @@ jobs:
           SB_DDBB_DATABASE: ${{ secrets.SB_DDBB_DATABASE }}
           SB_DDBB_USER: ${{ secrets.SB_DDBB_USER }}
           SB_DDBB_PWD: ${{ secrets.SB_DDBB_PWD }}
-        run: python3 -m src.data_ingestion.download_ticker_data
+        run: poetry run python3 -m src.data_ingestion.download_ticker_data
