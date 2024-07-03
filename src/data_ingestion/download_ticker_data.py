@@ -87,19 +87,14 @@ if __name__ == "__main__":
         end_data = args.end_date
         start_date = args.start_date
 
-    #tickers_price = download_ticker_data(
-    #    tickers=tickers, 
-    #    start_date=args.start_date, 
-    #    end_date=args.end_date
-    #)
     ticker_downloader = YahooTickerDownloader()
     
     tickers = ticker_downloader.get_all_tickers(args.all)
 
     tickers_price = ticker_downloader.download_ticker_data(
         tickers=tickers, 
-        start_date=args.start_date, 
-        end_date=args.end_date,
+        start_date=start_date, 
+        end_date=end_data,
     )
 
     db_config = PostgresConfig(
