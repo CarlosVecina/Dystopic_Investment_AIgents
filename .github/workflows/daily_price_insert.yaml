@@ -2,7 +2,7 @@ name: Download and insert daily prices
 
 on:
   schedule:
-    - cron: "0 10 * * *"    #runs at 9:00 UTC everyday
+    - cron: "10 11 * * *"    #runs at 11:10 UTC everyday
 
 jobs:
   build:

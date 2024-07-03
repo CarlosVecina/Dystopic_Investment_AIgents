@@ -31,24 +31,27 @@ class YahooTickerDownloader(BaseModel):
         else:
             raise ValueError("Not implemented")
 
-    def download_ticker_data(self, tickers: str | list[str], start_date: datetime.datetime, end_date: datetime.datetime):
-        if isinstance(tickers, str):
-            ticker = yf.Tickers(tickers)
-            hist = ticker.history(start=start_date, end=end_date)
+    def download_ticker_data(self, tickers: list[str], start_date: datetime.datetime, end_date: datetime.datetime):
+        if len(tickers) == 1:
+            ticker = yf.Ticker(" ".join(tickers))
+            result = ticker.history(start=start_date, end=end_date)
+            result.reset_index(inplace=True)
+            result["ticker"] = " ".join(tickers)
         else:
             ticker = yf.Tickers(" ".join(tickers))
             hist = ticker.history(start=start_date, end=end_date)
 
-        tickers_data = []
-        for ticker, data in hist.groupby(level=1, axis=1):
-            data.columns = data.columns.droplevel(1)
-            data.reset_index(drop=True, inplace=True)
-            data.insert(0, 'ticker', ticker)
-            tickers_data.append(data)
+            tickers_data = []
+            for ticker, data in hist.groupby(level=1, axis=1):
+                data.columns = data.columns.droplevel(1)
+                data.reset_index(inplace=True)
+                data.insert(0, 'ticker', ticker)
+                tickers_data.append(data)
 
-        result = pd.concat(tickers_data)
+            result = pd.concat(tickers_data[1:])
+
         result.columns = result.columns.str.lower().str.replace(" ", "_")
         result["created_at"] = datetime.datetime.now()
 
-        ticker_columns = ["created_at", "ticker", "open", "high", "low", "close", "dividends", "stock_splits", "volume"]
+        ticker_columns = ["date", "ticker", "created_at", "open", "high", "low", "close", "dividends", "stock_splits", "volume"]
         return result[ticker_columns]
