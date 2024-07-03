@@ -1,4 +1,4 @@
-name: Download and insert daily prices
+name: Test
 
 on:
   schedule:

@@ -19,6 +19,8 @@ pydantic = "^2.7.0"
 rel = "^0.4.9.9"
 langchain = "^0.1.16"
 weaviate-client = "^4.6.0"
+yfinance = "^0.2.40"
+psycopg2 = "^2.9.9"
 
 
 [tool.poetry.group.dev.dependencies]
