@@ -1,4 +1,4 @@
-
+import sys
 import argparse
 from typing import Any
 import datetime
@@ -6,7 +6,6 @@ from pandas import DataFrame
 import os
 import json
 import requests
-import pandas as pd
 
 import vectorbt as vbt
 from dotenv import load_dotenv
@@ -37,7 +36,7 @@ def get_all_tickers(only_top_marketcap: bool = False) -> list[Any]:
             "RELX", "STLA", "TGT", "SMFG", "DEO", "ITW", "CME", "MPC", "SO", "ICE", "CRWD", "RACE",
             "SLB", "INFY", "MELI", "DUK", "MAR", "ENB", "MO", "EQIX", "SAN", "FCX", "CL", "PH",
             "PSX", "CSX", "WDAY", "MCO", "TRI", "MCK", "ZTS", "PYPL", "APH", "BDX", "TDG", "ROP",
-            "MSI", "MNST", "CRH", "AMX", "DASH", "NSC", "EW", "E", "TEAM", "COIN", "RSG", "BNS",
+            "MSI", "MNST", "CRH", "AMX", "DASH", "NSC", "EW", "TEAM", "COIN", "RSG", "BNS",
             "SPOT", "NTES", "VLO", "ITUB", "ROP", "CEG", "PNC", "NXPI", "COIN", "RSG", "BNS",
             "SPOT", "NTES", "VLO", "ITUB", "PCAR", "HMC", "BBVA", "OXY", "AON", "MRVL", "CEG",
             "PNC", "CPRT", "SNOW", "NU", "SMCI", "DXCM", "ING", "ET", "HLT"
@@ -80,8 +79,12 @@ if __name__ == "__main__":
 
     args=parser.parse_args()
 
-    end_data = datetime.datetime.now().date().strftime("%Y-%m-%d")
-    start_date = (datetime.datetime.now().date() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+    # Time range to retrieve the data
+    today_date = datetime.datetime.now().date().strftime("%Y-%m-%d")
+    start_date = (datetime.datetime.now().date() - datetime.timedelta(days=5)).strftime("%Y-%m-%d")
+
+    # The date to insert the finantial data. Must be inside the previous range
+    insert_date = (datetime.datetime.now().date() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 
     if args.start_date and args.end_date:
         end_data = args.end_date
@@ -97,6 +100,11 @@ if __name__ == "__main__":
         end_date=end_data,
     )
 
+    if insert_date not in tickers_price["date"].unique():
+        sys.exit("No data to insert today")
+    else:
+        tickers_price = tickers_price[tickers_price["date"] == insert_date]
+
     db_config = PostgresConfig(
         host=os.environ["SB_DDBB_HOST"],
         port=os.environ["SB_DDBB_PORT"],
@@ -109,4 +117,3 @@ if __name__ == "__main__":
 
 
     tickers_price.to_sql("stock_price_daily", db.engine, if_exists='append', index=False)
-
