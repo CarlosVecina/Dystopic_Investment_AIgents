@@ -80,14 +80,14 @@ if __name__ == "__main__":
     args=parser.parse_args()
 
     # Time range to retrieve the data
-    today_date = datetime.datetime.now().date().strftime("%Y-%m-%d")
+    end_date = datetime.datetime.now().date().strftime("%Y-%m-%d")
     start_date = (datetime.datetime.now().date() - datetime.timedelta(days=5)).strftime("%Y-%m-%d")
 
     # The date to insert the finantial data. Must be inside the previous range
     insert_date = (datetime.datetime.now().date() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 
     if args.start_date and args.end_date:
-        end_data = args.end_date
+        end_date = args.end_date
         start_date = args.start_date
 
     ticker_downloader = YahooTickerDownloader()
@@ -97,7 +97,7 @@ if __name__ == "__main__":
     tickers_price = ticker_downloader.download_ticker_data(
         tickers=tickers, 
         start_date=start_date, 
-        end_date=end_data,
+        end_date=end_date,
     )
 
     if insert_date not in tickers_price["date"].unique():
