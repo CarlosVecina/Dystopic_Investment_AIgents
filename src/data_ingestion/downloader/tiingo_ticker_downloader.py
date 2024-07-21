@@ -35,7 +35,10 @@ class TiingoDownloader(BaseModel):
         )
 
     def get_prices(
-        self, tickers: list[str], start_date: datetime.datetime, end_date: datetime.datetime = datetime.datetime.now()
+        self,
+        tickers: list[str],
+        start_date: datetime.datetime,
+        end_date: datetime.datetime = datetime.datetime.now(),
     ) -> pd.DataFrame:
         headers = {"Content-Type": "application/json"}
         df_tickers = pd.DataFrame()
@@ -48,8 +51,63 @@ class TiingoDownloader(BaseModel):
             response["created_at"] = datetime.datetime.now()
             df_tickers = pd.concat([df_tickers, pd.DataFrame(response)])
         return df_tickers
-    
+
     def get_daily_prices(
         self, tickers: list[str], date: datetime.datetime
     ) -> pd.DataFrame:
-        return self.get_prices(tickers, date, end_date=date + datetime.timedelta(days=1))
+        return self.get_prices(
+            tickers, date, end_date=date + datetime.timedelta(days=1)
+        )
+
+    def _get_news_raw(
+        self,
+        tickers: str,
+        start_date: datetime.datetime,
+        end_date: datetime.datetime = datetime.datetime.now(),
+        limit: int = 100,
+    ) -> pd.DataFrame:
+        """Aimed to be used internally to get news from Tiingo API"""
+        headers = {"Content-Type": "application/json"}
+        response = requests.get(
+            f"https://api.tiingo.com/tiingo/news?token={TIINGO_API}&tickers={tickers}&startDate={start_date.date()}&endDate={end_date.date()}&limit={limit}",
+            headers=headers,
+        ).json()
+        df_response = pd.DataFrame(response)
+        df_response["created_at"] = datetime.datetime.now()
+        return df_response
+
+    def get_news(
+        self,
+        tickers: list[str],
+        start_date: datetime.datetime,
+        end_date: datetime.datetime = datetime.datetime.now(),
+        limit_per_ticker: int = 100,
+    ) -> pd.DataFrame:
+        """Exposed method to get news from Tiingo API for multiple tickers iterating over each ticker thus several API calls.
+        Note that here the limit is per ticker. So you may expect a final DF with shape[0] in (0, limit_per_ticker*len(tickers)] range.
+        """
+        df_tickers = pd.DataFrame()
+        for query_ticker in tickers:
+            df_response = self._get_news_raw(
+                query_ticker, start_date, end_date, limit_per_ticker
+            )
+            df_tickers = pd.concat([df_tickers, df_response])
+
+        return df_tickers
+
+    def get_news_composed(
+        self,
+        tickers: list[str],
+        start_date: datetime.datetime,
+        end_date: datetime.datetime = datetime.datetime.now(),
+        limit: int = 500,
+    ) -> pd.DataFrame:
+        """Exposed method to get news from Tiingo API for multiple tickers in the same API call.
+        Note that here the limit is global, not per ticker. So you may expect a final with shape[0] in (0, limit] tange.
+        """
+        query_ticker = ",".join(tickers)
+        df_response = self._get_news_raw(
+            query_ticker, start_date, end_date, limit
+        )
+
+        return df_response
