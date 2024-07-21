@@ -111,3 +111,16 @@ class TiingoDownloader(BaseModel):
         )
 
         return df_response
+
+    def get_daily_news_composed(
+        self,
+        tickers: list[str],
+        date: datetime.datetime,
+        limit: int = 500,
+    ) -> pd.DataFrame:
+        return self.get_news_composed(
+            tickers=tickers,
+            start_date=date,
+            end_date=date + datetime.timedelta(days=1),
+            limit=limit,
+        )
