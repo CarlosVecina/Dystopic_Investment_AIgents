@@ -32,7 +32,7 @@ class TiingoDownloader(BaseModel):
             ),
             self.engine,
             params={"filter_date": date},
-        )
+        )["ticker"].to_list()
 
     def get_prices(
         self,
@@ -65,11 +65,12 @@ class TiingoDownloader(BaseModel):
         start_date: datetime.datetime,
         end_date: datetime.datetime = datetime.datetime.now(),
         limit: int = 100,
+        offset: int = 0,
     ) -> pd.DataFrame:
         """Aimed to be used internally to get news from Tiingo API"""
         headers = {"Content-Type": "application/json"}
         response = requests.get(
-            f"https://api.tiingo.com/tiingo/news?token={TIINGO_API}&tickers={tickers}&startDate={start_date.date()}&endDate={end_date.date()}&limit={limit}",
+            f"https://api.tiingo.com/tiingo/news?token={TIINGO_API}&tickers={tickers}&startDate={start_date.date()}&endDate={end_date.date()}&limit={limit}&offset={offset}",
             headers=headers,
         ).json()
         df_response = pd.DataFrame(response)
@@ -91,7 +92,7 @@ class TiingoDownloader(BaseModel):
             df_response = self._get_news_raw(
                 query_ticker, start_date, end_date, limit_per_ticker
             )
-            df_tickers = pd.concat([df_tickers, df_response])
+            df_tickers = pd.concat([df_tickers, df_response.drop_duplicates(subset="id")])
 
         return df_tickers
 
