@@ -63,7 +63,7 @@ class TiingoDownloader(BaseModel):
         self,
         tickers: str,
         start_date: datetime.datetime,
-        end_date: datetime.datetime = datetime.datetime.now(),
+        end_date: datetime.datetime,
         limit: int = 100,
         offset: int = 0,
     ) -> pd.DataFrame:
@@ -92,7 +92,9 @@ class TiingoDownloader(BaseModel):
             df_response = self._get_news_raw(
                 query_ticker, start_date, end_date, limit_per_ticker
             )
-            df_tickers = pd.concat([df_tickers, df_response.drop_duplicates(subset="id")])
+            df_tickers = pd.concat(
+                [df_tickers, df_response.drop_duplicates(subset="id")]
+            )
 
         return df_tickers
 
@@ -102,16 +104,41 @@ class TiingoDownloader(BaseModel):
         start_date: datetime.datetime,
         end_date: datetime.datetime = datetime.datetime.now(),
         limit: int = 500,
+        n_elements_per_batch: int = 50,
     ) -> pd.DataFrame:
         """Exposed method to get news from Tiingo API for multiple tickers in the same API call.
         Note that here the limit is global, not per ticker. So you may expect a final with shape[0] in (0, limit] tange.
         """
-        query_ticker = ",".join(tickers)
-        df_response = self._get_news_raw(
-            query_ticker, start_date, end_date, limit
-        )
+        # Batch the requests by grouping the tickers
+        if len(tickers) > n_elements_per_batch:
+            n_elements = len(tickers)
+            batches = [
+                (i - n_elements_per_batch, i)
+                for i in range(
+                    n_elements_per_batch, n_elements, n_elements_per_batch
+                )
+            ]
+            batches.append((batches[-1][1], n_elements))
+        else:
+            batches = [(0, len(tickers))]
 
-        return df_response
+        # Get the news for each batch
+        df_news = pd.DataFrame()
+        for start, end in batches:
+            offset = 0
+            exhausted = False
+            while not exhausted:
+                query_ticker = ",".join(tickers[start:end])
+                df_response = self._get_news_raw(
+                    query_ticker, start_date, end_date, limit, offset
+                )
+                offset += limit
+                exhausted = df_response.shape[0] == 0
+                df_news = pd.concat([df_news, df_response]).drop_duplicates(
+                    subset="id"
+                )
+
+        return df_news
 
     def get_daily_news_composed(
         self,
