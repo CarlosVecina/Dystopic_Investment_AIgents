@@ -2,29 +2,30 @@
 name = "dystopian-investment"
 version = "0.1.0"
 description = ""
-authors = ["Carlos Vecina <carlos.vecina@jobandtalent.com>"]
+authors = ["Carlos Vecina <carlosvecinatebar@gmail.com>"]
 readme = "README.md"
 packages = [{ include = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-#polars = "^0.20.15"
 vectorbt = "^0.26.0"
 alpaca-trade-api = "^3.2.0"
 python-dotenv = "^1.0.1"
 nbformat = "^5.10.3"
-websockets = "10"
-kafka-python = "^2.0.2"
 pydantic = "^2.7.0"
 rel = "^0.4.9.9"
-langchain = "^0.1.16"
-weaviate-client = "^4.6.0"
 yfinance = "^0.2.40"
 psycopg2 = "^2.9.9"
+vecs = "^0.4.3"
+pyarrow = "^17.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.4"
+websockets = "10"
+kafka-python = "^2.0.2"
+langchain = "^0.1.16"
+weaviate-client = "^4.6.0"
 
 [tool.poetry.group.scrape.dependencies]
 beautifulsoup4 = "*"
