@@ -10,7 +10,10 @@ from src.agents.agent_base import Agent, Percentage
 @dataclass
 class FundDirectives(DataClass):
     industries: list[str] = field(
-        metadata={"desc": "A list of different unique industries"}
+        metadata={"desc": "A list of different unique industries with thematic names as the dystopic future."}
+    )
+    real_industries: list[str] = field(
+        metadata={"desc": "The same list of industries, but each one should fit in current market industries like: 'Tech', 'Health', 'Finance', etc."}
     )
     weights: list[Percentage] = field(
         metadata={"desc": "A list of weights between 0 and 1. The lenght should be the same from the industries field."}
@@ -65,7 +68,7 @@ class FundManagerAdal(FundManagerBase):
         if past_fund_directive:
             content += f"The past fund directive was: {past_fund_directive} "
         if context_summary:
-            content += f"Here it is some extra context summary: {context_summary} "
+            content += f"Here it is some extra context information summary: {context_summary} "
         if reports:
             content += f"Here it is some experienced analyst reports: {past_fund_directive} "
         prompt_kwargs = {"input_str": content}
