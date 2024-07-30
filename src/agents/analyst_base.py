@@ -26,8 +26,9 @@ class AnalystBase(ABC, Agent):
     @abstractmethod
     def generate_report(self, content: str) -> Report: ...
 
-
+    
 class AnalystAdal(AnalystBase):
+    # https://lightrag.sylph.ai/tutorials/agent.html
     @computed_field()
     @property
     def _react_brain(self) -> ReActAgent:
@@ -40,6 +41,7 @@ class AnalystAdal(AnalystBase):
     @computed_field()
     @property
     def _generator_brain(self) -> Generator:
+        # TODO: abstract the prompting and the Adal brain
         return Generator(
             model_client=self.seniority,
             model_kwargs=self.seniority_args,
@@ -50,7 +52,7 @@ class AnalystAdal(AnalystBase):
                 - Please, follow the input language for the output.
                 - Do not add any information that is not present in the input.
                 - Do not include your opinion or interpretation.
-                - Utilize a {self.personality.value} tone.
+                - Utilize a {self.personality.mood.value} tone.
                 """
             },
         )

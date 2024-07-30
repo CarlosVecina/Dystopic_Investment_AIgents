@@ -1,13 +1,18 @@
 from enum import Enum
-from typing import Any, Callable
-from pydantic import BaseModel
+from typing import Annotated, Any, Callable
+from pydantic import BaseModel, Field
 
 
-class Personality(Enum):
+class Mood(Enum):
     OPTIMISTIC = "optimistic"
     PESIMISTIC = "pesimistic"
     DYSTOPIC = "dystopic"
 
+Percentage = Annotated[float, Field(gt=0, lt=1)]
+
+class Personality(BaseModel):
+    mood: Mood
+    risk_tolerance: Percentage
 
 class Agent(BaseModel):
     personality: Personality
