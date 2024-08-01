@@ -31,3 +31,6 @@ start-project:
 
 start-websocket-kafka-producer:
 	poetry run python3 src/data_ingestion/download_financial_news.py --url wss://paper-api.alpaca.markets/stream
+
+run-app:
+	poetry run streamlit run src/app/app.py   
