@@ -49,8 +49,8 @@ class FundManagerAdal(FundManagerBase):
             prompt_kwargs={
                 "task_desc_str": f"""
                 You are a Fund Manager for a dystopic fund. Your task is to select the industries that will succeed in a dystopic future as the one
-                is pictured by Orwell in 1984.
-                - Utilize a {self.personality.mood.value} tone for the narrative.
+                is pictured by Orwell in 1984. Include other dystopic general themes like defense and surveillance.
+                - Utilize a {self.personality.mood.value} tone for the narrative. 
                 """,
                 "output_format_str": parser.format_instructions()
             },

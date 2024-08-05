@@ -14,16 +14,18 @@ class Asset(BaseModel):
     name: str
     type: str
 
+    model_config = {"frozen": True}
+
 
 class Portfolio(BaseModel):
     allocation: dict[Asset, float]
 
 @dataclass
 class Operations(DataClass):
-    buy: dict[Asset, float]
-    sell: dict[Asset, float]
+    #buy: dict[Asset, float]
+    #sell: dict[Asset, float]
     final_portfolio: Portfolio
-    intial_portfolio: Portfolio | None = None
+    #intial_portfolio: Portfolio | None = None # not super needed, just seems to work a bit better 
 
 
 class QuantTraderBase(ABC, Agent):
@@ -56,9 +58,10 @@ class QuantTraderNaiveAdal(QuantTraderBase):
                 - Check the most important stocks in the SP500 and NASDAQ but also some promising medium size ones for each industry given. Don't forget any industry.
                 - You don't short assets. You only can sell if there is enough asset allocation in the portfolio.
                 - If the initial portfolio is not given, you may start from scratch so the initial portfolio is empty, and there is any sell.
-                - The total wights should be 100.
+                - If the initial portfolio is given, you may sell assets that are not in the industries the manager gives to you, but you may also balance with portfolio stability as a secondary objective.
+                - If a initial porfolio is given, you just need to sell some assets in order to buy the new ones. The sum of the weight of the assets should still be 1.
                 - The assets available are the ones in SP500 and NASDAQ, not invented or placeholder ones.
-                - You need to have at least 20 assets in the final portfolio.
+                - You need to have at least 10 assets in the final portfolio.
                 - The sum of the weights of the companies in each industry should have the same weight as the real_industries given by the manager. For example, if the manager has given 3 industries with 0.3, 0.4, and 0.3 weights, the weights of the companies in the first industry should sum up 0.3, for example 0.20 and 0.1.
                 - You probably want to sell assets that are not in the industries that the manager has given to you if they are in the present in the past portfolio compossition.
                 - Attend also to lower market cap industries such as small caps in order to achieve companies if any strage industries has been given like Agriculture.
@@ -67,6 +70,7 @@ class QuantTraderNaiveAdal(QuantTraderBase):
                 - Forget about companies that have its growth super stagnant. Also deprioritice super big companies like Apple, Amazon, NVIDIA, Tesla or Microsoft.
 
                 Before responding, please check that sum of the weights of the companies in each industry and the given industries weight match. If they don't, you may want to adjust the weights of the companies.
+                Also check the total portfolio weight. It should be 1.
                 """,
                 "output_format_str": parser.format_instructions()
             },
@@ -81,10 +85,10 @@ class QuantTraderNaiveAdal(QuantTraderBase):
     ) -> Operations: 
         prompt_kwargs = {
             "input_str": f"""
-The industries given by the manager and their weights are: {str(fund_directives.to_dict(exclude=['industries', 'narrative']))}
+The industries given by the manager and their weights are: {str(fund_directives.to_dict(exclude=['narrative']))}
         """}
         if past_portfolio:
-            prompt_kwargs["input_str"] += f" The past portfolio compossition is {past_portfolio.model_dump()}"
+            prompt_kwargs["input_str"] += f" The past portfolio compossition in JSON format is {past_portfolio.model_dump_json()}"
         else:
             prompt_kwargs["input_str"] += " There is no past portfolio information. So you may start from scratch with the purchases."
         self._generator_brain.print_prompt(**prompt_kwargs)
