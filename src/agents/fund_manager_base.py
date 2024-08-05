@@ -55,7 +55,6 @@ class FundManagerAdal(FundManagerBase):
                 "output_format_str": parser.format_instructions()
             },
             output_processors=parser,
-
         )
     
     def create_directive(
@@ -73,6 +72,6 @@ class FundManagerAdal(FundManagerBase):
             content += f"Here it is some experienced analyst reports: {past_fund_directive} "
         prompt_kwargs = {"input_str": content}
         self._generator_brain.print_prompt(**prompt_kwargs)
-        response = self._generator_brain.call()
+        response = self._generator_brain.call(prompt_kwargs=prompt_kwargs)
 
         return response
