@@ -1,4 +1,5 @@
 import datetime
+import time
 from dotenv import load_dotenv
 import pandas as pd
 from pydantic import BaseModel
@@ -39,24 +40,39 @@ class TiingoDownloader(BaseModel):
         tickers: list[str],
         start_date: datetime.datetime,
         end_date: datetime.datetime = datetime.datetime.now(),
+        batch_size: int = 100,
     ) -> pd.DataFrame:
+        if not isinstance(tickers, list):
+            raise ValueError("tickers should be a list of string tickers")
+
         headers = {"Content-Type": "application/json"}
         df_tickers = pd.DataFrame()
-        for ticker in tickers:
+        for i, ticker in enumerate(tickers):
             response = requests.get(
                 f"https://api.tiingo.com/tiingo/daily/{ticker}/prices?token={TIINGO_API}&startDate={start_date.date()}&endDate={end_date.date()}",
                 headers=headers,
             ).json()
-            response["ticker"] = ticker
-            response["created_at"] = datetime.datetime.now()
-            df_tickers = pd.concat([df_tickers, pd.DataFrame(response)])
+            if isinstance(response, dict):
+                response = [response]
+            df_response = pd.DataFrame(response)
+            df_response["ticker"] = ticker
+            df_response["created_at"] = datetime.datetime.now()
+            df_tickers = pd.concat([df_tickers, df_response])
+
+            if i % batch_size == 0:
+                df_tickers.to_sql(
+                    "ticker_prices", self.engine, if_exists="append", index=False
+                )
+                df_tickers = pd.DataFrame()
+                print(f"Downloaded {i + batch_size} tickers")
+                time.sleep(5)
         return df_tickers
 
     def get_daily_prices(
         self, tickers: list[str], date: datetime.datetime
     ) -> pd.DataFrame:
         return self.get_prices(
-            tickers, date, end_date=date + datetime.timedelta(days=1)
+            tickers, date, end_date=date
         )
 
     def _get_news_raw(
