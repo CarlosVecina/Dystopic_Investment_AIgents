@@ -1,0 +1,376 @@
+Company,Location,Date,Level,NameTag,Years of Experience,At Company,Total Compensation (SGD),Base,Stock (yr),Bonus
+Illumina,Singapore, SG, Singapore,a day ago,P3,ML / AI,5 yrs,3 yrs,138.000 S$,130 mil,8 mil,N/A
+Tencent,Singapore, SG, Singapore,3 days ago,T11,Data,5 yrs,2 yrs,290.001 S$,200 mil,40 mil,50 mil
+Grab,Singapore, SG, Singapore,4 days ago,G4,Analytics,7 yrs,4 yrs,172.001 S$,133 mil,20 mil,19 mil
+InfoCepts,Singapore, SG, Singapore,6 days ago,L2,Data,3 yrs,3 yrs,57.500 S$,57.5 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,7 days ago,G5,hidden,7 yrs,3 yrs,305.001 S$,180 mil,89 mil,36 mil
+Grab,Singapore, SG, Singapore,01/08/2024,G6,Data Science,8 yrs,5 yrs,332.001 S$,192 mil,100 mil,40 mil
+Nanyang Technological University,Singapore, SG, Singapore,01/08/2024,Project Manager,AI/Computer Vision,6 yrs,6 yrs,93.600 S$,93.6 mil,N/A,N/A
+HPE,Singapore, SG, Singapore,30/07/2024,Specialist,NLP,5 yrs,3 yrs,87.000 S$,75 mil,N/A,12 mil
+Grab,Singapore, SG, Singapore,19/07/2024,G4,Product,6 yrs,6 yrs,188.801 S$,142.8 mil,20 mil,26 mil
+Verisk,Singapore, SG, Singapore,18/07/2024,L1,Data,2 yrs,2 yrs,56.000 S$,56 mil,N/A,N/A
+Carro,Singapore, SG, Singapore,17/07/2024,Data Scientist III,i,2 yrs,2 yrs,84.500 S$,78 mil,N/A,6.5 mil
+Temasek,Singapore, SG, Singapore,13/07/2024,Analyst,Data,2 yrs,2 yrs,150.000 S$,100 mil,N/A,50 mil
+Envision,Singapore, SG, Singapore,11/07/2024,Entry,Data Science,0 yrs,0 yrs,60.000 S$,60 mil,N/A,N/A
+Lazada,Singapore, SG, Singapore,05/07/2024,hidden,hidden,5-10 yrs,2-4 yrs,160.000 S$,120 mil,N/A,40 mil
+DSO National Labs,Singapore, SG, Singapore,05/07/2024,7,MTS,4 yrs,4 yrs,123.760 S$,88 mil,N/A,35.8 mil
+Facebook,Singapore, SG, Singapore,29/06/2024,IC5,Data,7 yrs,3 yrs,407.999 S$,218 mil,150 mil,40 mil
+Accenture,Singapore, SG, Singapore,19/06/2024,Associate Data Scientist,Analytics,3 yrs,3 yrs,100.000 S$,100 mil,N/A,N/A
+Data Scientist,Singapore, SG, Singapore,14/06/2024,-,hidden,0 yrs,0 yrs,72.000 S$,72 mil,N/A,N/A
+OCBC,Singapore, SG, Singapore,13/06/2024,AVP,ML,6 yrs,3 yrs,134.000 S$,104 mil,N/A,30 mil
+HPE,Singapore, SG, Singapore,12/06/2024,L3,Data,2 yrs,0 yrs,70.000 S$,70 mil,N/A,N/A
+Gojek Tech,Singapore, SG, Singapore,31/05/2024,L3,AI,4 yrs,0 yrs,110.000 S$,110 mil,N/A,N/A
+AMILI,Singapore, SG, Singapore,30/05/2024,-,Bio,6 yrs,0 yrs,102.000 S$,102 mil,N/A,N/A
+McKinsey,Singapore, SG, Singapore,27/05/2024,Data Scientist,Data,2 yrs,2 yrs,110.000 S$,100 mil,N/A,10 mil
+Louis Dreyfus Commodities,Singapore, SG, Singapore,25/05/2024,-,Commodities,6 yrs,0 yrs,195.001 S$,150 mil,N/A,45 mil
+ByteDance,Singapore, SG, Singapore,23/05/2024,2-2,Analytics,5 yrs,0 yrs,209.000 S$,151.2 mil,20 mil,37.8 mil
+Agency for Science Technology and Research,Singapore, SG, Singapore,18/05/2024,5,RTS,12 yrs,5 yrs,156.000 S$,136 mil,N/A,20 mil
+ByteDance,Singapore, SG, Singapore,16/05/2024,2-2,hidden,15 yrs,2 yrs,213.001 S$,170.4 mil,N/A,42.6 mil
+Qualtrics,Singapore, SG, Singapore,15/05/2024,L5,Hi,12 yrs,3 yrs,120.000 S$,120 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,15/05/2024,G4,CV,3 yrs,3 yrs,165.960 S$,112 mil,37 mil,17 mil
+DBS Bank,Singapore, SG, Singapore,14/05/2024,AVP,Customer,7 yrs,2 yrs,140.000 S$,120 mil,N/A,20 mil
+GovTech,Singapore, SG, Singapore,08/05/2024,HDS,9 yrs,3 yrs,152.001 S$,152 mil,N/A,N/A
+DBS Bank,Singapore, SG, Singapore,01/05/2024,VP,Data,13 yrs,3 yrs,+1 mil S$,120.000 S$,100 mil,N/A,20 mil
+Shopee,Singapore, SG, Singapore,26/04/2024,Fresh Graduate,Risk,0 yrs,0 yrs,92.000 S$,78 mil,1 mil,13 mil
+Micron Technology,Singapore, SG, Singapore,23/04/2024,E4,Manufacturing,4 yrs,4 yrs,153.817 S$,153.8 mil,N/A,N/A
+Thales,Singapore, SG, Singapore,17/04/2024,LR7,Reinforcement learning,6 yrs,6 yrs,83.616 S$,83.6 mil,N/A,N/A
+Expedia,Singapore, SG, Singapore,16/04/2024,Data Scientist III,B2B,8 yrs,0 yrs,123.000 S$,123 mil,N/A,N/A
+McKinsey,Singapore, SG, Singapore,08/04/2024,Data Scientist,DS,1 yr,1 yr,101.500 S$,101.5 mil,N/A,N/A
+Gojek Tech,Singapore, SG, Singapore,07/04/2024,L3,Marketplace,3 yrs,3 yrs,122.000 S$,110 mil,N/A,12 mil
+Cargill,Singapore, SG, Singapore,04/04/2024,DS Lead,Commodities,7 yrs,4 yrs,180.001 S$,150 mil,N/A,30 mil
+Tencent,Singapore, SG, Singapore,01/04/2024,T9,Data,7 yrs,1 yr,135.261 S$,135.3 mil,N/A,N/A
+Johnson & Johnson,Singapore, SG, Singapore,01/04/2024,23,Data,5 yrs,3 yrs,140.000 S$,140 mil,N/A,N/A
+Tencent,Singapore, SG, Singapore,27/03/2024,T9,ML / AI,7 yrs,0 yrs,132.000 S$,132 mil,N/A,N/A
+Data Scientist,Singapore, SG, Singapore,27/03/2024,hidden,hidden,11+ yrs,11+ yrs,360.001 S$,240 mil,N/A,120 mil
+Grab,Singapore, SG, Singapore,27/03/2024,G4,Analytics,5 yrs,3 yrs,158.000 S$,108 mil,50 mil,N/A
+Mastercard,Singapore, SG, Singapore,23/03/2024,L7,Senior,5 yrs,5 yrs,84.000 S$,84 mil,N/A,N/A
+GIC,Singapore, SG, Singapore,22/03/2024,L0,Intern,0 yrs,0 yrs,48.000 S$,48 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,22/03/2024,G4,Analytics,6 yrs,2 yrs,134.600,S$99.6 mil,20 mil,15 mil
+Temasek,Singapore, SG, Singapore,22/03/2024,L2,-,10 yrs,3 yrs,210.000,S$210 mil,N/A,N/A
+Synapxe,Singapore, SG, Singapore,20/03/2024,L4,Data Science,7 yrs,5 yrs,108.000,S$108 mil,N/A,N/A
+Silent Eight,Singapore, SG, Singapore,20/03/2024,-,AI,13 yrs,3 yrs,164.800,S$154.8 mil,10 mil,N/A
+Micron Technology,Singapore, SG, Singapore,19/03/2024,E2S,MAI,2 yrs,2 yrs,75.000,S$75 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,18/03/2024,G4,ACE,4 yrs,4 yrs,154.880,S$107.9 mil,30 mil,17 mil
+AlphaGrep Securities,Singapore, SG, Singapore,15/03/2024,L1,Trader,1 yr,1 yr,180.000,S$120 mil,N/A,60 mil
+ByteDance,Singapore, SG, Singapore,14/03/2024,2-1,ML,5 yrs,2 yrs,134.350,S$108 mil,7 mil,19.4 mil
+GovTech,Singapore, SG, Singapore,14/03/2024,H,Data Science,4 yrs,0 yrs,144.001,S$144 mil,N/A,N/A
+HTX,Singapore, SG, Singapore,11/03/2024,XT6,-,2 yrs,2 yrs,101.700,S$81.6 mil,N/A,20.1 mil
+ExpressVPN,Singapore, SG, Singapore,09/03/2024,IC5,Marketing,9 yrs,2 yrs,140.000,S$120 mil,N/A,20 mil
+Dell Technologies,Singapore, SG, Singapore,06/03/2024,Data Scientist II,AI,5 yrs,2 yrs,80.000,S$80 mil,N/A,N/A
+Gojek Tech,Singapore, SG, Singapore,29/02/2024,L4,Marketplace,14 yrs,3 yrs,152.560,S$144 mil,5.9 mil,2.7 mil
+Grab,Singapore, SG, Singapore,28/02/2024,G4,Data Scientist,2 yrs,2 yrs,135.000,S$100 mil,20 mil,15 mil
+Agency for Science,Singapore, SG, Singapore,24/02/2024,RTS 5b,AI Machine learning,8 yrs,6 yrs,121.000,S$121 mil,N/A,N/A
+Micron Technology,Singapore, SG, Singapore,14/02/2024,E2S,MAI,2 yrs,2 yrs,74.750,S$66 mil,3.8 mil,5 mil
+Agency for Science,Singapore, SG, Singapore,12/02/2024,hidden,-,2-4 yrs,2-4 yrs,150.000,S$132 mil,N/A,18 mil
+GroupM,Singapore, SG, Singapore,09/02/2024,Mid Senior level,Data Science,4 yrs,2 yrs,99.000,S$99 mil,N/A,N/A
+Aon,Singapore, SG, Singapore,09/02/2024,-,Data Science,8 yrs,2 yrs,102.000,S$95 mil,N/A,7 mil
+ByteDance,Singapore, SG, Singapore,08/02/2024,2-1,Data Science,4 yrs,1 yr,146.000,S$109 mil,10 mil,27 mil
+Bosch Global,Singapore, SG, Singapore,06/02/2024,EG14,AI,9 yrs,3 yrs,132.000,S$132 mil,N/A,N/A
+BCG,Singapore, SG, Singapore,31/01/2024,L5,Spark,15 yrs,2 yrs,260.000,S$200 mil,N/A,60 mil
+Point72,Singapore, SG, Singapore,31/01/2024,2,Data,4 yrs,4 yrs,198.000,S$180 mil,N/A,18 mil
+Google,Singapore, SG, Singapore,31/01/2024,L3,Data,6 yrs,1 yr,100.000,S$100 mil,N/A,N/A
+GovTech,Singapore, SG, Singapore,29/01/2024,--,4 yrs,3 yrs,150.000,S$150 mil,N/A,N/A
+Lazada,Singapore, SG, Singapore,25/01/2024,hidden,hidden,5-10 yrs,0-1 yrs,206.001,S$156 mil,25 mil,25 mil
+Nanyang Technological University,Singapore, SG, Singapore,23/01/2024,L1,Data,3 yrs,1 yr,66.000,S$66 mil,N/A,N/A
+Lazada,Singapore, SG, Singapore,22/01/2024,Senior,P4,17 yrs,3 yrs,139.000,S$124 mil,N/A,15 mil
+DBS Bank,Singapore, SG, Singapore,15/01/2024,AVP,AI,8 yrs,1 yr,134.000,S$114 mil,N/A,20 mil
+Shopee,Singapore, SG, Singapore,09/01/2024,Junior,CV,1 yr,1 yr,100.000,S$100 mil,N/A,N/A
+Delivery Hero,Singapore, SG, Singapore,31/12/2023,IC3,Product,8 yrs,2 yrs,179.175,S$135 mil,29.2 mil,15 mil
+Fazz,Singapore, SG, Singapore,31/12/2023,L1,Payments,1 yr,1 yr,60.000,S$60 mil,N/A,N/A
+Razer,Singapore, SG, Singapore,21/12/2023,-,NLP,6 yrs,1 yr,110.000,S$110 mil,N/A,N/A
+Ai Palette,Singapore, SG, Singapore,09/12/2023,-,NLP,5 yrs,3 yrs,108.000,S$108 mil,N/A,N/A
+Ministry of Home Affairs,Singapore, SG, Singapore,05/12/2023,14,Data,5 yrs,5 yrs,134.090,S$134.1 mil,N/A,N/A
+ByteDance,Singapore, SG, Singapore,05/12/2023,2-2,Security,6 yrs,2 yrs,184.001,S$144 mil,10 mil,30 mil
+IAG,Singapore, SG, Singapore,30/11/2023,-,Innovation,6 yrs,3 yrs,100.000,S$100 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,28/11/2023,G3,Data Science,1 yr,0 yrs,105.700,S$82.2 mil,9.5 mil,14 mil
+ByteDance,Singapore, SG, Singapore,23/11/2023,2-1,Data,2 yrs,2 yrs,180.001,S$180 mil,N/A,N/A
+DBS Bank,Singapore, SG, Singapore,20/11/2023,hidden,hidden,0-1 yrs,0-1 yrs,83.400,S$68.4 mil,N/A,15 mil
+Grab,Singapore, SG, Singapore,19/11/2023,G3,Data,2 yrs,1 yr,80.000,S$80 mil,N/A,N/A
+Experian,Singapore, SG, Singapore,15/11/2023,L2,Data Scientist,8 yrs,4 yrs,100.000,S$100 mil,N/A,N/A
+Gojek Tech,Singapore, SG, Singapore,14/11/2023,L4,Machine Learning,7 yrs,4 yrs,140.001,S$140 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,12/11/2023,G3,Product,2 yrs,2 yrs,72.000,S$72 mil,N/A,N/A
+Lazada,Singapore, SG, Singapore,12/11/2023,L3,Tech,2 yrs,1 yr,110.000,S$110 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,11/11/2023,G3,Analytics,4 yrs,2 yrs,84.000,S$84 mil,N/A,N/A
+Henkel,Singapore, SG, Singapore,10/11/2023,-,Big Data,3 yrs,2 yrs,66.209 S$,66.2 mil,N/A,N/A
+Shopee,Singapore, SG, Singapore,10/11/2023,Expert,AI,5 yrs,5 yrs,158.000 S$,114 mil,25 mil,19 mil
+Starhub,Singapore, SG, Singapore,07/11/2023,-,Data Scientist,3 yrs,2 yrs,87.200 S$,74.5 mil,N/A,12.7 mil
+Singtel,Singapore, SG, Singapore,04/11/2023,Associate,Data Science,2 yrs,2 yrs,76.000 S$,66 mil,N/A,10 mil
+Micron Technology,Singapore, SG, Singapore,02/11/2023,E4,hidden,13 yrs,11 yrs,175.150 S$,152.2 mil,5 mil,18 mil
+DBS Bank,Singapore, SG, Singapore,31/10/2023,Senior Associate,Finance,4 yrs,1 yr,102.000 S$,102 mil,N/A,N/A
+Delivery Hero,Singapore, SG, Singapore,31/10/2023,IC3,Product Analyst,7 yrs,2 yrs,111.000 S$,96 mil,N/A,15 mil
+Point72,Singapore, SG, Singapore,31/10/2023,L3,ML / AI,0 yrs,0 yrs,185.000 S$,185 mil,N/A,N/A
+ByteDance,Singapore, SG, Singapore,31/10/2023,2-1,Tag,2 yrs,0 yrs,150.000 S$,150 mil,N/A,N/A
+HTX,Singapore, SG, Singapore,22/10/2023,L1,Government,1 yr,1 yr,77.217 S$,77.2 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,21/10/2023,G6,Analytics,10 yrs,5 yrs,290.000 S$,170 mil,80 mil,40 mil
+Facebook,Singapore, SG, Singapore,19/10/2023,IC4,Data,6 yrs,3 yrs,190.001 S$,150 mil,40 mil,N/A
+Seagate,Singapore, SG, Singapore,16/10/2023,L4,Artificial Intelligence Research,1 yr,1 yr,60.000 S$,60 mil,N/A,N/A
+ByteDance,Singapore, SG, Singapore,11/10/2023,2-1,R&D,3 yrs,0 yrs,137.500 S$,110 mil,N/A,27.5 mil
+DHL,Singapore, SG, Singapore,10/10/2023,-,-,5 yrs,3 yrs,127.000 S$,112 mil,N/A,15 mil
+GovTech,Singapore, SG, Singapore,07/10/2023,L2,Data,4 yrs,1 yr,136.360 S$,136.4 mil,N/A,N/A
+Singapore Management University,Singapore, SG, Singapore,05/10/2023,-,Research,1 yr,1 yr,72.000 S$,72 mil,N/A,N/A
+National University of Singapore,Singapore, SG, Singapore,05/10/2023,L3,NLP,4 yrs,1 yr,80.000 S$,64 mil,N/A,16 mil
+Grab,Singapore, SG, Singapore,04/10/2023,G4,Analytics,5 yrs,2 yrs,150.001 S$,150 mil,N/A,N/A
+SAP,Singapore, SG, Singapore,03/10/2023,T2,AI,1 yr,0 yrs,90.000 S$,90 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,21/09/2023,G4,Geo,4 yrs,2 yrs,203.000 S$,150 mil,40 mil,13 mil
+Micron Technology,Singapore, SG, Singapore,19/09/2023,E1,SM,AI,1 yr,1 yr,68.408 S$,65 mil,3.4 mil,N/A
+Grab,Singapore, SG, Singapore,10/09/2023,G5,new,8 yrs,0 yrs,211.524 S$,172.3 mil,5.6 mil,33.6 mil
+Standard Chartered,Singapore, SG, Singapore,09/09/2023,6,Band,8 yrs,3 yrs,177.560 S$,142.6 mil,N/A,35 mil
+Traveloka,Singapore, SG, Singapore,09/09/2023,L4,Data,5 yrs,3 yrs,143.283 S$,122.8 mil,N/A,20.5 mil
+Shopee,Singapore, SG, Singapore,07/09/2023,L1,-,0 yrs,0 yrs,67.200 S$,67.2 mil,N/A,N/A
+Standard Chartered,Singapore, SG, Singapore,06/09/2023,6C,b,4 yrs,1 yr,150.000 S$,150 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,04/09/2023,G4,DS,1 yr,1 yr,137.000 S$,100 mil,22 mil,15 mil
+Grab,Singapore, SG, Singapore,01/09/2023,G5,Data Science,6 yrs,3 yrs,249.000 S$,174 mil,40 mil,35 mil
+Alibaba Cloud,Singapore, SG, Singapore,31/08/2023,P4,Intern,4 yrs,4 yrs,60.000 S$,60 mil,N/A,N/A
+Lazada,Singapore, SG, Singapore,31/08/2023,L3,P4,17 yrs,3 yrs,124.000 S$,124 mil,N/A,N/A
+Shanda Group,Singapore, SG, Singapore,31/08/2023,-,-,5 yrs,0 yrs,162.000 S$,162 mil,N/A,N/A
+Binance,Singapore, SG, Singapore,31/08/2023,T3.2,Data Service,9 yrs,1 yr,262.008 S$,156 mil,54 mil,52 mil
+Refinitiv,Singapore, SG, Singapore,30/08/2023,2,Research,5 yrs,2 yrs,120.000 S$,120 mil,N/A,N/A
+Data Scientist,Singapore, SG, Singapore,29/08/2023,hidden,hidden,5-10 yrs,2-4 yrs,143.700 S$,124.8 mil,N/A,18.9 mil
+Shopee,Singapore, SG, Singapore,24/08/2023,L3,Credit,1 yr,1 yr,114.013 S$,114 mil,N/A,N/A
+GovTech,Singapore, SG, Singapore,23/08/2023,Data Scientist II,Data Scientist,4 yrs,4 yrs,108.000 S$,108 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,17/08/2023,G6,Analytics,9 yrs,5 yrs,271.000 S$,168 mil,70 mil,33 mil
+Lazada,Singapore, SG, Singapore,17/08/2023,hidden,hidden,5-10 yrs,2-4 yrs,200.001 S$,200 mil,N/A,N/A
+MOLOCO,Singapore, SG, Singapore,10/08/2023,L3,Growth,4 yrs,1 yr,133.134 S$,90 mil,29.6 mil,13.5 mil
+National University of Singapore,Singapore, SG, Singapore,10/08/2023,-,ML / AI,6 yrs,2 yrs,80.773 S$,80.8 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,25/07/2023,G4,Product Analyst,5 yrs,2 yrs,113.600 S$,93.6 mil,N/A,20 mil
+GovTech,Singapore, SG, Singapore,23/07/2023,hidden,hidden,2-4 yrs,0-1 yrs,120.000 S$,120 mil,N/A,N/A
+Shopee,Singapore, SG, Singapore,20/07/2023,hidden,hidden,5-10 yrs,2-4 yrs,198.700 S$,134 mil,42 mil,22.7 mil
+Tencent,Singapore, SG, Singapore,20/07/2023,T9,Data,8 yrs,1 yr,130.000 S$,130 mil,N/A,N/A
+Grab,Singapore, SG, Singapore,19/07/2023,G4,Data,1 yr,1 yr,143.000 S$,108 mil,20 mil,15 mil
+Lazada,Singapore, SG, Singapore,18/07/2023,4.2,AI,5 yrs,4 yrs,170.000 S$,130 mil,10 mil,30 mil
+Dyson,Singapore, SG, Singapore,14/07/2023,L11,ML / AI,3 yrs,1 yr,213.141 S$,170 mil,N/A,43.1 mil
+Agilent Technologies,Singapore, SG, Singapore,12/07/2023,-,Senior,7 yrs,4 yrs,140.931 S$,133 mil,8 mil,N/A
+Grab Singapore, SG, Singapore,12/07/2023,G4,Economist,1 yr,1 yr,206.965 S$,132 mil,55.2 mil,19.8 mil
+Monetary Authority of Singapore, SG, Singapore,11/07/2023,-,Data Science,6 yrs,6 yrs,103.000 S$,103 mil,N/A,N/A
+BNY Mellon Singapore, SG, Singapore,09/07/2023,KAI,5 yrs,4 yrs,170.000 S$,135 mil,15 mil,20 mil
+Agency for Science, Technology and Research, Singapore, SG, Singapore,03/07/2023,L1,Research Engineer,1 yr,1 yr,66.000 S$,66 mil,N/A,N/A
+Charles & Keith, Singapore, SG, Singapore,01/07/2023,Senior,AI,4 yrs,1 yr,116.725 S$,96.6 mil,N/A,20.1 mil
+GIC Singapore, SG, Singapore,30/06/2023,hidden,hidden,5-10 yrs,5-10 yrs,289.999 S$,190 mil,N/A,100 mil
+Henkel Singapore, SG, Singapore,30/06/2023,L1,Intern,0 yrs,0 yrs,42.000 S$,42 mil,N/A,N/A
+Deloitte Advisory Singapore, SG, Singapore,30/06/2023,Analyst 2,Cybersecurity,1 yr,1 yr,54.000 S$,54 mil,N/A,N/A
+ByteDance Singapore, SG, Singapore,30/06/2023,2-1,Data Science,7 yrs,0 yrs,210.000 S$,135.6 mil,30.5 mil,43.9 mil
+Shopee Singapore, SG, Singapore,30/06/2023,Senior,Image Processing,5 yrs,2 yrs,166.000 S$,108 mil,40 mil,18 mil
+DBS Bank Singapore, SG, Singapore,25/06/2023,-,hidden,0 yrs,0 yrs,66.000 S$,66 mil,N/A,N/A
+Agency for Science, Technology and Research, Singapore, SG, Singapore,25/06/2023,-,Scholarship,4 yrs,4 yrs,39.600 S$,39.6 mil,N/A,N/A
+Grab Singapore, SG, Singapore,23/06/2023,G6,Analytics,7 yrs,5 yrs,306.368 S$,188.6 mil,80 mil,37.7 mil
+Facebook Singapore, SG, Singapore,21/06/2023,IC4,Measurement,8 yrs,2 yrs,196.000 S$,154 mil,12 mil,30 mil
+Shopee Singapore, SG, Singapore,17/06/2023,Senior,AI,8 yrs,1 yr,351.900 S$,164.4 mil,160 mil,27.5 mil
+Data Scientist, Singapore, SG, Singapore,14/06/2023,hidden,hidden,2-4 yrs,0-1 yrs,68.400 S$,68.4 mil,N/A,N/A
+ByteDance Singapore, SG, Singapore,11/06/2023,2-1,Data Science,4 yrs,0 yrs,160.000 S$,130 mil,N/A,30 mil
+Facebook Singapore, SG, Singapore,07/06/2023,IC6,Marketing,14 yrs,4 yrs,376.001 S$,280 mil,40 mil,56 mil
+Facebook Singapore, SG, Singapore,06/06/2023,IC4,Measurement,8 yrs,2 yrs,200.000 S$,160 mil,40 mil,N/A
+Agency for Science, Technology and Research, Singapore, SG, Singapore,31/05/2023,3,Engineer,1 yr,0 yrs,57.987 S$,51.5 mil,N/A,6.4 mil
+ByteDance Singapore, SG, Singapore,31/05/2023,2-1,Analysis,7 yrs,0 yrs,203.001 S$,142 mil,25 mil,36 mil
+DHL Singapore, SG, Singapore,31/05/2023,L2,Technology,7 yrs,1 yr,135.087 S$,135.1 mil,N/A,N/A
+Shift Technology, Singapore, SG, Singapore,27/05/2023,L2,Data,5 yrs,4 yrs,105.000 S$,105 mil,N/A,N/A
+Grab Singapore, SG, Singapore,27/05/2023,G4,Analytics,7 yrs,1 yr,124.102 S$,94.8 mil,13.5 mil,15.8 mil
+Hyundai Motor Group, Singapore, SG, Singapore,23/05/2023,--,,4 yrs,1 yr,140.904 S$,119.2 mil,N/A,21.7 mil
+Facebook Singapore, SG, Singapore,16/05/2023,IC5,Marketing,10 yrs,4 yrs,255.997 S$,214.4 mil,9.4 mil,32.2 mil
+Grab Singapore, SG, Singapore,12/05/2023,G4,hidden,5 yrs,2 yrs,160.000 S$,160 mil,N/A,N/A
+Grab Singapore, SG, Singapore,07/05/2023,G3,Product Analytics,2 yrs,1 yr,100.000 S$,100 mil,N/A,N/A
+Google Singapore, SG, Singapore,06/05/2023,L5,Data,10 yrs,5 yrs,244.999 S$,180 mil,40 mil,25 mil
+Visa Singapore, SG, Singapore,03/05/2023,Data Scientist,Data,3 yrs,3 yrs,95.000 S$,95 mil,N/A,N/A
+Tookitaki Singapore, SG, Singapore,28/04/2023,L3,Data Scientist,1 yr,0 yrs,70.000 S$,70 mil,N/A,N/A
+Agency for Science, Technology and Research, Singapore, SG, Singapore,26/04/2023,5b,Machine Learning,10 yrs,4 yrs,208.912 S$,182.2 mil,N/A,26.7 mil
+Standard Chartered, Singapore, SG, Singapore,13/04/2023,L5,Other,6 yrs,2 yrs,250.001 S$,200 mil,N/A,50 mil
+DSTA Singapore, SG, Singapore,11/04/2023,L3,Data,3 yrs,3 yrs,85.000 S$,85 mil,N/A,N/A
+ByteDance Singapore, SG, Singapore,06/04/2023,-,Data,9 yrs,1 yr,185.000 S$,132 mil,20 mil,33 mil
+Grab Singapore, SG, Singapore,03/04/2023,G4,AI/ML,2 yrs,0 yrs,135.000 S$,100 mil,20 mil,15 mil
+Indeed Singapore, SG, Singapore,31/03/2023,L2-II,Senior,4 yrs,1 yr,175.000 S$,120 mil,40 mil,15 mil
+Indeed Singapore, SG, Singapore,31/03/2023,L2,Senior,3 yrs,1 yr,185.000 S$,125 mil,40 mil,20 mil
+Data Scientist, Singapore, SG, Singapore,25/03/2023,hidden,hidden,4 yrs,4 yrs,85.536 S$,83.2 mil,N/A,2.3 mil
+Indeed Singapore, SG, Singapore,23/03/2023,L2-II,Science,4 yrs,1 yr,168.500 S$,126 mil,42.5 mil,N/A
+Capgemini Singapore, SG, Singapore,22/03/2023,A3,Data Science,3 yrs,1 yr,53.280 S$,53.3 mil,N/A,N/A
+Grab Singapore, SG, Singapore,21/03/2023,G3,PA,3 yrs,1 yr,107.400 S$,99.6 mil,7.8 mil,N/A
+Grab Singapore, SG, Singapore,07/03/2023,G3,Analytics,1 yr,1 yr,94.800 S$,72 mil,12 mil,10.8 mil
+Data Scientist, Singapore, SG, Singapore,05/03/2023,hidden,hidden,0 yrs,0 yrs,19.200 S$,19.2 mil,N/A,N/A
+Grab Singapore, SG, Singapore,02/03/2023,G3,IC,1 yr,1 yr,117.500 S$,90 mil,20 mil,7.5 mil
+Micron Technology, Singapore, SG, Singapore,28/02/2023,E1,Manufacturing,2 yrs,1 yr,70.000 S$,60 mil,N/A,10 mil
+Shopee Singapore, SG, Singapore,25/02/2023,L3-,,3 yrs,1 yr,112.800 S$,86.4 mil,19.2 mil,7.2 mil
+Data Scientist, Singapore, SG, Singapore,20/02/2023,hidden,hidden,5-10 yrs,0-1 yrs,126.000 S$,126 mil,N/A,N/A
+Thales Singapore, SG, Singapore,14/02/2023,LR7,-,5 yrs,5 yrs,87.750 S$,87.8 mil,N/A,N/A
+Caterpillar Singapore, SG, Singapore,09/02/2023,Grade 21-4,4 yrs 4 yrs,78.000 S$78 mil,N/A,N/A
+Capgemini Singapore, SG, Singapore,01/02/2023,A5A53,3 yrs 1 yr,69.700 S$69,7 mil,N/A,N/A
+ByteDance Singapore, SG, Singapore,31/01/2023,1-2,Technical,1 yr 0 yrs,130.000 S$130 mil,N/A,N/A
+AIA SingaporeSingapore, SG, Singapore,31/01/2023,3A,Technology - Data Architecture,1 yr 0 yrs,77.550 S$66 mil,N/A,11,6 mil
+Snackpass Singapore, SG, Singapore,31/01/2023,L2-5,2 yrs,96.000 S$84 mil,N/A,12 mil
+Negotiate up, or your money back,$25k,$19k,$13k
+Negotiate your offer,Make More,Grab Singapore, SG, Singapore,26/01/2023,G4,Senior,5 yrs 3 yrs,120.000 S$120 mil,N/A,N/A
+Chope Singapore, SG, Singapore,23/01/2023,L3,Fnb,7 yrs 1 yr,132.000 S$132 mil,N/A,N/A
+Facebook Singapore, SG, Singapore,14/01/2023,IC5,Ads measurement,10 yrs 3 yrs,351.849 S$219 mil,100 mil,32,8 mil
+Shopee Singapore, SG, Singapore,14/01/2023,Senior,Analytics,3 yrs 2 yrs,112.500 S$90 mil,7,5 mil,15 mil
+National Universi... Singapore, SG, Singapore,13/01/2023,-,Machine Learning,5 yrs 5 yrs,91.000 S$84 mil,N/A,7 mil
+Data ScientistSingapore, SG, Singapore,05/01/2023,hidden,hidden,2-4 yrs 0-1 yrs,89.000 S$89 mil,N/A,N/A
+GoTo Financial Singapore, SG, Singapore,27/12/2022,L3,Lending,5 yrs 1 yr,120.000 S$120 mil,N/A,N/A
+Zeus Living Singapore, SG, Singapore,17/12/2022,L2,AI/ML,3 yrs 2 yrs,114.000 S$114 mil,N/A,N/A
+Shopee Singapore, SG, Singapore,15/12/2022,Senior Software Engineer,Machine learning(in search),6 yrs 3 yrs,113.400 S$97,2 mil,N/A,16,2 mil
+Delivery Hero Singapore, SG, Singapore,15/12/2022,IC3,Product,7 yrs 3 yrs,176.000 S$143 mil,22 mil,11 mil
+Certis Singapore, SG, Singapore,14/12/2022,-,Data,3 yrs 1 yr,72.000 S$72 mil,N/A,N/A
+Tower Research Ca... Singapore, SG, Singapore,13/12/2022,Entry,Quant,0 yrs 0 yrs,287.500 S$175 mil,N/A,112,5 mil
+Grab Singapore, SG, Singapore,12/12/2022,G3,2 yrs 2 yrs,133.294 S$133,3 mil,N/A,N/A
+Una Brands Singapore, SG, Singapore,09/12/2022,Business Intelligence,1 yr 1 yr,79.798 S$60 mil,19,8 mil,N/A
+ByteDance Singapore, SG, Singapore,06/12/2022,1-2,hidden,3 yrs 1 yr,102.200 S$82,2 mil,N/A,20 mil
+Genome Institute ... Singapore, SG, Singapore,02/12/2022,L2,Research,0 yrs 0 yrs,101.200 S$74,4 mil,N/A,12,4 mil
+Lotusflare Singapore, SG, Singapore,01/12/2022,-,Growth,5 yrs 5 yrs,135.000 S$120 mil,N/A,15 mil
+Gojek Tech Singapore, SG, Singapore,30/11/2022,L3,-,3 yrs 2 yrs,98.400 S$98,4 mil,N/A,N/A
+Shopee Singapore, SG, Singapore,27/11/2022,hidden,hidden,5-10 yrs 2-4 yrs,184.000 S$144 mil,40 mil,N/A
+Binance Singapore, SG, Singapore,26/11/2022,L2,Customer Analytics,6 yrs 1 yr,140.000 S$120 mil,N/A,20 mil
+Micron Technology Singapore, SG, Singapore,25/11/2022,E4,Testing,7 yrs 7 yrs,126.000 S$110 mil,N/A,16 mil
+Visa Singapore, SG, Singapore,24/11/2022,L2,Data Scientist,1 yr 1 yr,105.000 S$105 mil,N/A,N/A
+Pluang Singapore, SG, Singapore,17/11/2022,Junior,Marketing/Growth,2 yrs 2 yrs,85.500 S$68,4 mil,N/A,17,1 mil
+National Universi... Singapore, SG, Singapore,16/11/2022,-,Research,0 yrs 0 yrs,75.000 S$72 mil,N/A,3 mil
+Grab Singapore, SG, Singapore,16/11/2022,G3,2 yrs 2 yrs,128.400 S$98,4 mil,15 mil,15 mil
+DBS Singapore, SG, Singapore,07/11/2022,hidden,hidden,5-10 yrs 0-1 yrs,114.400 S$98,4 mil,N/A,16 mil
+Goldman Sachs Singapore, SG, Singapore,04/11/2022,Analyst,Data,2 yrs 1 yr,91.176 S$84,2 mil,N/A,7 mil
+Sabre Singapore, SG, Singapore,03/11/2022,L4,Data,7 yrs 6 yrs,144.001 S$144 mil,N/A,N/A
+Data Scientist Singapore, SG, Singapore,01/11/2022,hidden,hidden,2-4 yrs 2-4 yrs,113.173 S$113,2 mil,N/A,N/A
+JPMorgan Chase Singapore, SG, Singapore,01/11/2022,Vice President,vice president,10 yrs 2 yrs,202.001 S$160 mil,N/A,42 mil
+Grab Singapore, SG, Singapore,01/11/2022,G5,AI/ML,3 yrs 0 yrs,275.001 S$175 mil,65 mil,35 mil
+Standard Chartered Singapore, SG, Singapore,01/11/2022,6,Data,3 yrs 0 yrs,150.001 S$150 mil,N/A,N/A
+Visa Singapore, SG, Singapore,31/10/2022,Staff Data Scientist,Tag,7 yrs 4 yrs,227.189 S$227,2 mil,N/A,N/A
+Google Singapore, SG, Singapore,30/10/2022,L3,Algorithm,3 yrs 1 yr,116.800 S$106,8 mil,N/A,10 mil
+Google Singapore, SG, Singapore,26/10/2022,L3,Machine Learning,3 yrs 1 yr,150.001 S$150 mil,N/A,N/A
+Data Scientist Singapore, SG, Singapore,20/10/2022,hidden,hidden,4 yrs 3 yrs,85.000 S$70 mil,N/A,15 mil
+Grab Singapore, SG, Singapore,20/10/2022,G4,Product,5 yrs 4 yrs,125.800 S$100,8 mil,15 mil,10 mil
+ByteDance Singapore, SG, Singapore,16/10/2022,2-2,Machine Learning,5 yrs 1 yr,191.000 S$133 mil,25 mil,33 mil
+DBS Bank Singapore, SG, Singapore,16/10/2022,VP,-4 yrs 1 yr,186.001 S$160 mil,N/A,26 mil
+ByteDance Singapore, SG, Singapore,15/10/2022,2-2,Data,8 yrs 1 yr,198.580 S$178,7 mil,19,9 mil,N/A
+Grab Singapore, SG, Singapore,14/10/2022,G5,hidden,8 yrs 2 yrs,188.001 S$158 mil,30 mil,N/A
+Micron Technology Singapore, SG, Singapore,13/10/2022,E1SMAI,5 yrs 1 yr,91.337 S$72 mil,14,3 mil,5 mil
+Micron Technology Singapore, SG, Singapore,13/10/2022,E1SMAI,5 yrs 1 yr,81.083 S$71,5 mil,3,6 mil,6 mil
+Grab Singapore, SG, Singapore,13/10/2022,G3,financial products,3 yrs 1 yr,116.407 S$92,1 mil,11,4 mil,12,9 mil
+DBS Bank,Singapore,SG,13/10/2022,L2,-4 yrs,4 yrs,100.500 S$80.4 mil,N/A,20.1 mil
+Tencent Holdings,Singapore,SG,12/10/2022,9,Data,7 yrs,1 yr,9.500 S$9.5 mil,N/A,N/A
+Gojek Tech,Singapore,SG,11/10/2022,L4,Data,5 yrs,1 yr,214.001 S$164 mil,24 mil,26 mil
+Anglo American,Singapore,SG,10/10/2022,-,General,10 yrs,1 yr,220.001 S$160 mil,30 mil,30 mil
+Grab,Singapore,SG,08/10/2022,G3,Product,2 yrs,1 yr,114.000 S$84 mil,20 mil,10 mil
+National University,Singapore,SG,08/10/2022,-,AI,5 yrs,2 yrs,103.169 S$103.2 mil,N/A,N/A
+ByteDance,Singapore,SG,07/10/2022,1-2,-,6 yrs,1 yr,116.000 S$84 mil,N/A,32 mil
+SHEIN,Singapore,SG,06/10/2022,L4,Algorithm,5 yrs,1 yr,165.000 S$140 mil,N/A,25 mil
+Credit Suisse,Singapore,SG,04/10/2022,L3,ML,8 yrs,1 yr,135.000 S$120 mil,N/A,15 mil
+Visa,Singapore,SG,03/10/2022,Staff Data Scientist,Data Science,10 yrs,5 yrs,286.135 S$286.1 mil,N/A,N/A
+Shopee,Singapore,SG,01/10/2022,L1,NLP,1 yr,1 yr,80.400 S$80.4 mil,N/A,N/A
+SUTD,Singapore,SG,30/09/2022,-,RA / ML,1 yr,1 yr,48.000 S$48 mil,N/A,N/A
+Shopee,Singapore,SG,30/09/2022,hidden,hidden,0-1 yrs,0-1 yrs,96.012 S$78 mil,5 mil,13 mil
+National University,Singapore,SG,30/09/2022,-,ML / AI,3 yrs,0 yrs,100.000 S$100 mil,N/A,N/A
+Shopee,Singapore,SG,30/09/2022,Associate,Data Analyst,2 yrs,2 yrs,61.000 S$58.8 mil,N/A,2.2 mil
+Grab,Singapore,SG,30/09/2022,G4,Strategy,3 yrs,0 yrs,126.440 S$105.6 mil,5 mil,15.8 mil
+Shopee,Singapore,SG,30/09/2022,L3,hidden,5-10 yrs,0-1 yrs,130.200 S$100.2 mil,30 mil,N/A
+Shopee,Singapore,SG,30/09/2022,hidden,hidden,5-10 yrs,0-1 yrs,135.600 S$96 mil,38 mil,1.6 mil
+GovTech,Singapore,SG,30/09/2022,L3,Data Scientist,6 yrs,0 yrs,159.766 S$159.8 mil,N/A,N/A
+Facebook,Singapore,SG,28/09/2022,IC4,Product,6 yrs,4 yrs,200.000 S$150 mil,50 mil,N/A
+Data Scientist,Singapore,SG,22/09/2022,hidden,hidden,5-10 yrs,2-4 yrs,150.000 S$120 mil,N/A,30 mil
+Tencent,Singapore,SG,21/09/2022,T6,Data Scientist,1 yr,1 yr,14.505 S$14.5 mil,N/A,N/A
+Facebook,Singapore,SG,20/09/2022,IC4,Other,6 yrs,3 yrs,170.000 S$170 mil,N/A,N/A
+Salesforce,Singapore,SG,19/09/2022,Data Scientist,AI,1 yr,1 yr,239.999 S$180 mil,60 mil,N/A
+Grab,Singapore,SG,15/09/2022,G4,-,7 yrs,0 yrs,112.666 S$91.2 mil,7.8 mil,13.7 mil
+ByteDance,Singapore,SG,15/09/2022,2-2,-,6 yrs,0 yrs,278.415 S$211.5 mil,17.6 mil,49.3 mil
+GovTech,Singapore,SG,14/09/2022,hidden,hidden,2-4 yrs,2-4 yrs,114.125 S$97.8 mil,N/A,16.3 mil
+Data Scientist,Singapore,SG,14/09/2022,--,5 yrs,1 yr,144.001 S$144 mil,N/A,N/A
+Grab,Singapore,SG,12/09/2022,G3,AI/ML,3 yrs,1 yr,106.600 S$84 mil,10 mil,12.6 mil
+Shopee,Singapore,SG,12/09/2022,hidden,-,2-4 yrs,2-4 yrs,91.000 S$79 mil,6 mil,6 mil
+ARTC,Singapore,SG,12/09/2022,RSE,2,Researcher,7 yrs,2 yrs,117.600 S$93.6 mil,N/A,24 mil
+Shopee,Singapore,SG,08/09/2022,10,-,2 yrs,2 yrs,100.500 S$81 mil,6 mil,13.5 mil
+Shopee,Singapore,SG,04/09/2022,Senior,-,4 yrs,2 yrs,132.000 S$102 mil,30 mil,N/A
+Holmusk,Singapore,SG,31/08/2022,-,Data Science,1 yr,1 yr,84.000 S$84 mil,N/A,N/A
+Grab,Singapore,SG,24/08/2022,G4,Analytics,6 yrs,1 yr,130.200 S$108 mil,6 mil,16.2 mil
+Data Scientist,Singapore,SG,23/08/2022,--,3 yrs,1 yr,96.240 S$84.2 mil,N/A,12 mil
+Lazada,Singapore,SG,14/08/2022,L4,2,-,7 yrs,1 yr,170.000 S$140 mil,N/A,30 mil
+DBS,Singapore,SG,12/08/2022,--,2 yrs,2 yrs,97.500 S$90 mil,N/A,7.5 mil
+Shopee,Singapore,SG,31/07/2022,L10,Technical,1 yr,0 yrs,81.006 S$81 mil,N/A,N/A
+Shopee,Singapore,SG,28/07/2022,Expert,-,8 yrs,1 yr,219.001 S$144 mil,45 mil,30 mil
+Shopee,Singapore,SG,24/07/2022,Assistant Manager,Marketing Analytics,10 yrs,1 yr,135.000 S$115 mil,N/A,20 mil
+AITIS,Singapore,SG,17/07/2022,--,2 yrs,1 yr,69.600 S$69.6 mil,N/A,N/A
+Data Scientist,Singapore,SG,15/07/2022,--,2 yrs,2 yrs,158.000 S$108 mil,N/A,50 mil
+YITUS,Singapore,SG,13/07/2022,--,1 yr,1 yr,140.707 S$140.7 mil,N/A,N/A
+DBS,Singapore,SG,07/07/2022,--,3 yrs,1 yr,100.000 S$100 mil,N/A,N/A
+Grab,Singapore,SG,30/06/2022,G4,-,5 yrs,1 yr,99.600 S$99.6 mil,N/A,N/A
+Data Scientist,Singapore,SG,21/06/2022,hidden,-,0-1 yrs,0-1 yrs,85.000 S$75 mil,N/A,10 mil
+SHEIN,Singapore,SG,05/06/2022,Senior,-3 yrs,1 yr,140,000 S$120 mil,N/A,20 mil
+Disney,Singapore,SG,03/06/2022,M3,-10 yrs,1 yr,254,913 S$254.9 mil,N/A,N/A
+LotusFlare,Singapore,SG,01/06/2022,L4,-5 yrs,5 yrs,132,000 S$120 mil,N/A,12 mil
+Envision Digital,Singapore,SG,31/05/2022,L6,-7 yrs,2 yrs,64,200 S$64.2 mil,N/A,N/A
+QuantumBlack,Singapore,SG,18/05/2022,Consultant (Senior BA eq.),-4 yrs,3 yrs,135,000 S$120 mil,N/A,15 mil
+Shopee,Singapore,SG,15/05/2022,Engineer,-2 yrs,1 yr,92,700 S$76.8 mil,3.1 mil,12.8 mil
+Indeed,Singapore,SG,11/04/2022,L2,AI / ML,3 yrs,0 yrs,239,247 S$160 mil,49.5 mil,29.7 mil
+Grab,Singapore,SG,08/04/2022,G5,AI/ML,3 yrs,0 yrs,224,691 S$156 mil,37.5 mil,31.2 mil
+McKinsey,Singapore,SG,02/04/2022,-,2-3 yrs,3 yrs,120,000 S$105 mil,N/A,15 mil
+Shopee,Singapore,SG,31/03/2022,Senior,Recommendation,3 yrs,3 yrs,130,000 S$105 mil,25 mil,N/A
+National University,Singapore,SG,31/03/2022,4focus,1 yr,1 yr,90,000 S$90 mil,N/A,N/A
+Agency for Science,Singapore,SG,31/03/2022,--,1 yr,1 yr,68,400 S$68.4 mil,N/A,N/A
+Grab,Singapore,SG,21/03/2022,G5,-5 yrs,3 yrs,235,007 S$150 mil,55 mil,30 mil
+Grab,Singapore,SG,17/03/2022,G4,-5 yrs,1 yr,113,999 S$104 mil,N/A,10 mil
+Take-Two Interactive,Singapore,SG,01/03/2022,L3,Product,6 yrs,0 yrs,95,994 S$96 mil,N/A,N/A
+Nanyang Technological University,Singapore,SG,28/02/2022,-,Research,9 yrs,4 yrs,62,400 S$57.6 mil,N/A,4.8 mil
+Tiya,Singapore,SG,28/02/2022,Entry,Data,0 yrs,0 yrs,60,000 S$60 mil,N/A,N/A
+Grab,Singapore,SG,28/02/2022,G3,-2 yrs,1 yr,74,400 S$74.4 mil,N/A,N/A
+Temasek,Singapore,SG,16/02/2022,L3,Data,8 yrs,1 yr,201,477 S$134.3 mil,26.9 mil,40.3 mil
+Apple,Singapore,SG,10/02/2022,ICT3,ML / AI,2 yrs,2 yrs,157,427 S$103.6 mil,40.4 mil,13.5 mil
+Shopee,Singapore,SG,07/02/2022,Senior,ML,3 yrs,3 yrs,135,697 S$99.4 mil,20.2 mil,16.1 mil
+ByteDance,Singapore,SG,01/02/2022,2-1,ML / AI,3 yrs,0 yrs,145,525 S$108 mil,20.3 mil,17.3 mil
+Grab,Singapore,SG,21/01/2022,G5,ML,3 yrs,0 yrs,254,168 S$161.4 mil,60.5 mil,32.3 mil
+Grab,Singapore,SG,21/01/2022,G3,Data Scientist,4 yrs,2 yrs,134,481 S$94.1 mil,20.2 mil,20.2 mil
+Shopee,Singapore,SG,16/01/2022,Senior,Machine Learning,3 yrs,3 yrs,136,192 S$93 mil,27 mil,16.2 mil
+Grab,Singapore,SG,11/01/2022,G5,Analytics,4 yrs,4 yrs,136,413 S$132.4 mil,4.1 mil,N/A
+Dyson,Singapore,SG,02/01/2022,L2,General,5 yrs,1 yr,117,314 S$103.8 mil,N/A,13.5 mil
+Grab,Singapore,SG,31/12/2021,G3,Data,1 yr,0 yrs,78,000 S$78 mil,N/A,N/A
+QuantumBlack,Singapore,SG,07/12/2021,Jnr Associate,General,1 yr,1 yr,95,563 S$81.9 mil,N/A,13.7 mil
+Revolut,Singapore,SG,23/11/2021,L2,General,2 yrs,2 yrs,136,482 S$136.5 mil,N/A,N/A
+Grab,Singapore,SG,22/11/2021,G5,Analytics,6 yrs,4 yrs,144,671 S$121.5 mil,5.5 mil,17.7 mil
+Temasek,Singapore,SG,15/11/2021,Senior manager,/ 09-6 yrs,0 yrs,131,329 S$113.7 mil,N/A,17.6 mil
+MediaTek,Singapore,SG,10/11/2021,L1,AI Engineer,0 yrs,0 yrs,48,505 S$48.5 mil,N/A,N/A
+Traveloka,Singapore,SG,03/11/2021,T3,General,4 yrs,0 yrs,121,375 S$80.9 mil,27 mil,13.5 mil
+Experian,Singapore,SG,02/11/2021,L3,Credit Risk Modeling,8 yrs,2 yrs,111,936 S$107.9 mil,N/A,4 mil
+ByteDance,Singapore,SG,02/11/2021,1-2,Trust and Safety,6 yrs,1 yr,107,890 S$85 mil,N/A,22.9 mil
+Shopee,Singapore,SG,01/11/2021,Junior,Search,1 yr,1 yr,124,039 S$87.6 mil,22.9 mil,13.5 mil
+Shopee,Singapore,SG,01/11/2021,--,2-4 yrs,0-1 yrs,66,000 S$66 mil,N/A,N/A
+NCS,Singapore,SG,31/10/2021,OST,6,ETL,1 yr,0 yrs,43,000 S$43 mil,N/A,N/A
+Amazon,Singapore,SG,31/10/2021,DS III,General,15 yrs,3 yrs,265,822 S$199.7 mil,47.2 mil,18.9 mil
+ByteDance,Singapore,SG,04/10/2021,2-1,Product,6 yrs,1 yr,160,152 S$108.6 mil,24.4 mil,27.1 mil
+Amazon,Singapore,SG,02/10/2021,DS III,Professional Services,15 yrs,2 yrs,502,512 S$271.6 mil,230.9 mil,N/A
+Grab,Singapore,SG,02/10/2021,G3,General,1 yr,0 yrs,92,353 S$72 mil,6.8 mil,13.6 mil
+Uber,Raffles Park,SG,03/09/2021,L5,Operations,10 yrs,4 yrs,256,203 S$148.9 mil,53.7 mil,53.7 mil
+Apple,Woodlands,SG,26/08/2021,ICT4,General,11 yrs,1 yr,185,485 S$144.9 mil,40.6 mil,N/A
+Grab,Raffles Park,SG,19/08/2021,G4,General,3 yrs,0 yrs,127,961 S$108.9 mil,N/A,19.1 mil
+Temasek,Pasir Ris,SG,12/08/2021,L9,-6 yrs,0 yrs,128,988 S$114.1 mil,N/A,14.9 mil
+Grab,Woodlands,SG,11/08/2021,G5,Analytics,8 yrs,1 yr,189,959 S$135.7 mil,27.1 mil,27.1 mil
+Grab,Singapore,SG,Singapore,16/07/2021,G5,Data,6 yrs,1 yr,135,428,S$108,3 mil,13,5 mil,13,5 mil
+Grab,Singapore,SG,Singapore,30/06/2021,G4,Product,3 yrs,3 yrs,126,200,S$94,2 mil,10 mil,22 mil
+Shopee,Singapore,SG,Singapore,27/06/2021,L3,General,1 yr,1 yr,126,209,S$91,3 mil,18,8 mil,16,1 mil
+Shopee,Singapore,SG,Singapore,13/06/2021,Senior,General,4 yrs,2 yrs,160,413,S$82,2 mil,67,6 mil,10,6 mil
+Gojek Tech,Singapore,SG,Singapore,31/05/2021,L3,Other,2 yrs,2 yrs,96,000,S$96 mil,N/A,N/A
+Indeed,Singapore,SG,Singapore,31/05/2021,L1,General,3 yrs,0 yrs,140,250,S$115 mil,13,3 mil,12 mil
+Facebook,Singapore,SG,Singapore,30/05/2021,IC4,Legal,3 yrs,0 yrs,133,652,S$113,8 mil,7,9 mil,11,9 mil
+Shopee,Singapore,SG,Singapore,09/05/2021,Senior Expert,Recommendation,7 yrs,7 yrs,317,922,S$238,4 mil,39,7 mil,39,7 mil
+BioMind,Singapore,SG,Singapore,30/04/2021,L3,Other,2 yrs,2 yrs,72,000,S$72 mil,N/A,N/A
+Tencent,Singapore,SG,Singapore,30/04/2021,hidden,hidden,0-1 yrs,0-1 yrs,78,000,S$78 mil,N/A,N/A
+Grab,Singapore,SG,Singapore,16/04/2021,G4,General,4 yrs,2 yrs,160,127,S$108,1 mil,14,7 mil,37,4 mil
+Gojek Tech,Singapore,SG,Singapore,31/03/2021,L2,Data Scientist,1 yr,1 yr,130,000,S$120 mil,N/A,10 mil
+Gojek Tech,Singapore,SG,Singapore,31/03/2021,L2,Data Scientist,1 yr,1 yr,130,000,S$120 mil,N/A,10 mil
+Gojek Tech,Singapore,SG,Singapore,31/03/2021,L2,General,2 yrs,1 yr,135,000,S$120 mil,N/A,15 mil
+Agoda,Singapore,SG,Singapore,23/03/2021,Senior,General,5 yrs,0 yrs,145,416,S$121,2 mil,10,8 mil,13,5 mil
+Facebook,Singapore,SG,Singapore,10/03/2021,IC4,Mobile,5 yrs,2 yrs,224,463,S$146,5 mil,45,7 mil,32,3 mil
+Grab,Singapore,SG,Singapore,04/02/2021,G4,Machine Learning,4 yrs,2 yrs,132,354,S$100,3 mil,12 mil,20,1 mil
+Dyson,Singapore,SG,Singapore,31/01/2021,Data,3 yrs,0 yrs,108,499,S$93 mil,N/A,15,5 mil
+ByteDance,Singapore,SG,Singapore,19/01/2021,2-1,ML / AI,0 yrs,0 yrs,110,225,S$90,3 mil,5,3 mil,14,6 mil
+Grab,Singapore,SG,Singapore,23/12/2020,G3,Data,0 yrs,0 yrs,94,781,S$73,4 mil,1,3 mil,20 mil
+Shopee,Singapore,SG,Singapore,19/11/2020,Senior,ML / AI,1 yr,1 yr,131,862,S$102,3 mil,12,1 mil,17,5 mil
+Grab,Singapore,SG,Singapore,05/10/2020,G3,Data,0 yrs,0 yrs,81,588,S$61,2 mil,6,8 mil,13,6 mil
+GIC,Singapore,SG,Singapore,19/09/2020,AVP,ML / AI,3 yrs,3 yrs,190,269,S$130,5 mil,N/A,59,8 mil
+Grab,Singapore,SG,Singapore,28/08/2020,G5,ML / AI,7 yrs,0 yrs,152,154,S$122,3 mil,17,7 mil,12,2 mil
+Grab,Singapore,SG,Singapore,24/08/2020,G6,iOS,10 yrs,0 yrs,301,495,S$216,5 mil,41,1 mil,43,9 mil
+Apple,Singapore,SG,Singapore,19/08/2020,ICT,ML / AI,12 yrs,0 yrs,424,657,S$253,4 mil,137 mil,34,2 mil
+National University,Singapore,SG,Singapore,31/07/2020,L3,IORA,1 yr,1 yr,74,400,S$74,4 mil,N/A,N/A
+Shopee,Singapore,SG,Singapore,23/07/2020,Senior,ML / AI,3 yrs,2 yrs,138,600,S$83,2 mil,44,4 mil,11,1 mil
+DBS Bank,Singapore,SG,Singapore,20/07/2020,VP,ML / AI,15 yrs,2 yrs,291,627,S$222,2 mil,N/A,69,4 mil
+Grab,Singapore,SG,Singapore,14/07/2020,G3,ML / AI,2 yrs,2 yrs,79,244,S$62,6 mil,7 mil,9,7 mil
+Prudential,Singapore,SG,Singapore,01/07/2020,L2,AI,4 yrs,4 yrs,90,000,S$90 mil,N/A,N/A
+Lazada,Singapore,SG,Singapore,30/06/2020,P41,Algorithm,4 yrs,0 yrs,105,000,S$90 mil,N/A,15 mil
+Prudential Financial,Singapore,SG,Singapore,01/06/2020,L1,N/A,5 yrs,3 yrs,80,000,S$80 mil,N/A,N/A
+Shopee,Singapore,SG,Singapore,31/05/2020,Junior,ML / AI,1 yr,1 yr,80,475,S$67,8 mil,1,4 mil,11,3 mil
+Shopee,Singapore,SG,Singapore,16/05/2020,Staff,ML / AI,0 yrs,0 yrs,88,609,S$71,5 mil,N/A,17,2 mil
+Microsoft,Singapore,SG,Singapore,16/01/2020,Senior,ML / AI,5 yrs,5 yrs,228,926,S$175,1 mil,20,2 mil,33,7 mil
+Grab,Singapore,SG,Singapore,12/12/2019,G5,ML / AI,8 yrs,1 yr,216,333,S$135,2 mil,60,8 mil,20,3 mil
+Grab,Singapore,SG,Singapore,15/11/2019,G4,ML / AI,3 yrs,0 yrs,127,891,S$100,7 mil,12,2 mil,15 mil
+DBS Bank,Singapore,SG,Singapore,30/09/2019,Senior Associate,Data Science,4 yrs,0 yrs,72,000,S$72 mil,N/A,N/A
+Facebook,Singapore,SG,Singapore,18/06/2018,IC3,ML / AI,0 yrs,0 yrs,283,746,S$202,7 mil,40,5 mil,40,5 mil
