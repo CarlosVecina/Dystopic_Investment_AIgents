@@ -23,4 +23,4 @@ jobs:
           SB_DDBB_DATABASE: ${{ secrets.SB_DDBB_DATABASE }}
           SB_DDBB_USER: ${{ secrets.SB_DDBB_USER }}
           SB_DDBB_PWD: ${{ secrets.SB_DDBB_PWD }}
-        run: poetry run python3 -m src.data_ingestion.download_ticker_data
+        run: poetry run python3 -m src.data_ingestion.download_yh_ticker_data
