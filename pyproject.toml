@@ -30,6 +30,7 @@ langchainhub = "^0.1.15"
 lightrag = "^0.1.0b6"
 #app
 streamlit = "^1.37.0"
+yfinance = "^0.2.41"
 
 [tool.poetry.group.dev.dependencies]
 #websockets = "10"
