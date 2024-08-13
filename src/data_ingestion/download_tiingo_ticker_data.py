@@ -1,6 +1,7 @@
 import argparse
 import datetime
 import os
+import pandas as pd
 
 from src.data_ingestion.db.postgres_db import PostgresConfig, PostgresDB
 from src.data_ingestion.downloader.tiingo_ticker_downloader import (
@@ -25,13 +26,17 @@ if __name__ == "__main__":
     db = PostgresDB(config=db_config)
 
     dwn = TiingoDownloader(engine=db.engine)
-    tickers = dwn.available_tickers(date=None)
+    tickers = dwn.top_marketcap_tickers(400, date=None)
 
-    tickers = tickers[1900:]
+    #TODO: Remove this chunk of code as it is required for daily volume/ market cap
+    ##
 
     date = datetime.datetime.now() - datetime.timedelta(days=1)
     if args.date:
-        date = args.date
+        date = datetime.datetime.strptime(args.date, "%Y-%m-%d")
+
+    downloaded_tickers = pd.read_sql(f"SELECT distinct(ticker) FROM ticker_prices WHERE date = '{date.date()}'", db.engine)["ticker"].to_list()
+    tickers = [i for i in tickers if i not in downloaded_tickers]
 
     print(f"Downloading data for date {date}")
 
