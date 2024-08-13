@@ -4,8 +4,9 @@ from dotenv import load_dotenv
 import pandas as pd
 from pydantic import BaseModel
 import requests
-from sqlalchemy import Engine, text
 import os
+
+from src.data_ingestion.db.postgres_db import FinancialDB
 
 load_dotenv()
 
@@ -13,27 +14,10 @@ TIINGO_API = os.environ["TIINGO_API"]
 
 
 class TiingoDownloader(BaseModel):
-    engine: Engine
+    db: FinancialDB
 
     class Config:
         arbitrary_types_allowed = True
-
-    # TODO: Decouple db logic from the downloader
-    def available_tickers(
-        self, date: datetime.datetime | None
-    ) -> list[str] | None:
-        if not date:
-            date = pd.read_sql(
-                text("SELECT max(created_at) FROM active_tickers"), self.engine
-            )["max"].to_list()[0]
-
-        return pd.read_sql(
-            text(
-                "SELECT ticker FROM active_tickers WHERE created_at = :filter_date"
-            ),
-            self.engine,
-            params={"filter_date": date},
-        )["ticker"].to_list()
 
     def get_prices(
         self,
@@ -47,33 +31,39 @@ class TiingoDownloader(BaseModel):
 
         headers = {"Content-Type": "application/json"}
         df_tickers = pd.DataFrame()
-        for i, ticker in enumerate(tickers):
-            response = requests.get(
-                f"https://api.tiingo.com/tiingo/daily/{ticker}/prices?token={TIINGO_API}&startDate={start_date.date()}&endDate={end_date.date()}",
-                headers=headers,
-            ).json()
-            if isinstance(response, dict):
-                response = [response]
-            df_response = pd.DataFrame(response)
-            df_response["ticker"] = ticker
-            df_response["created_at"] = datetime.datetime.now()
-            df_tickers = pd.concat([df_tickers, df_response])
+        for i, ticker in enumerate(tickers, start=1):
+            print(ticker)
+            try:
+                response = requests.get(
+                    f"https://api.tiingo.com/tiingo/daily/{ticker}/prices?token={TIINGO_API}&startDate={start_date.date()}&endDate={end_date.date()}",
+                    headers=headers,
+                ).json()
+                if isinstance(response, dict):
+                    response = [response]
+                df_response = pd.DataFrame(response)
+                df_response["ticker"] = ticker
+                df_response["created_at"] = datetime.datetime.now()
+                df_tickers = pd.concat([df_tickers, df_response])
+            except Exception as e:
+                print(f"Error downloading {ticker}: {e}")
 
             if i % batch_size == 0:
+                print(df_tickers)
                 df_tickers.to_sql(
-                    "ticker_prices", self.engine, if_exists="append", index=False
+                    "ticker_prices",
+                    self.db.engine,
+                    if_exists="append",
+                    index=False,
                 )
                 df_tickers = pd.DataFrame()
                 print(f"Downloaded {i + batch_size} tickers")
-                time.sleep(5)
+                time.sleep(3)
         return df_tickers
 
     def get_daily_prices(
         self, tickers: list[str], date: datetime.datetime
     ) -> pd.DataFrame:
-        return self.get_prices(
-            tickers, date, end_date=date
-        )
+        return self.get_prices(tickers, date, end_date=date)
 
     def _get_news_raw(
         self,
