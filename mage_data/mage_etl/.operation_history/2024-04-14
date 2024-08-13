@@ -1,4 +1,0 @@
-{"operation": "create", "resource": {"type": "pipeline", "uuid": "black_crafter"}, "timestamp": 1713127571, "user": null}
-{"operation": "create", "resource": {"type": "pipeline", "uuid": "illusory_healer"}, "timestamp": 1713129015, "user": null}
-{"operation": "create", "resource": {"type": "pipeline", "uuid": "fantastic_spellcaster"}, "timestamp": 1713131635, "user": null}
-{"operation": "create", "resource": {"type": "pipeline", "uuid": "melodious_haze"}, "timestamp": 1713138950, "user": null}

@@ -15,7 +15,7 @@ services:
     environment:
       APCA_API_KEY_ID: ${APCA_API_KEY_ID}
       APCA_API_SECRET_KEY: ${APCA_API_SECRET_KEY}
-      USER_CODE_PATH: /home/src/${PROJECT_NAME}
+      USER_CODE_PATH: /home/dystopic_investment_aigents/${PROJECT_NAME}
       POSTGRES_DBNAME: ${POSTGRES_DBNAME}
       POSTGRES_SCHEMA: ${POSTGRES_SCHEMA}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -25,7 +25,7 @@ services:
     ports:
       - 6789:6789
     volumes:
-      - .:/home/src/
+      - .:/home/dystopic_investment_aigents/
     restart: on-failure:5
 
   postgres:

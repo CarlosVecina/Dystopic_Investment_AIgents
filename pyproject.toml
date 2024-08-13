@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "dystopian-investment"
+name = "dystopic-investment-aigents"
 version = "0.1.0"
 description = ""
 authors = ["Carlos Vecina <carlosvecinatebar@gmail.com>"]
 readme = "README.md"
-packages = [{ include = "src" }]
+packages = [{ include = "dystopic_investment_aigents" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"

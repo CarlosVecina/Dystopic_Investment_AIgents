@@ -1,7 +1,0 @@
-connector_type: google_cloud_storage
-bucket: terraform-demo-20240115-demo-bucket
-prefix: prefix
-file_type: parquet
-buffer_size_mb: 5
-buffer_timeout_seconds: 300
-path_to_credentials_json_file: /home/src/keys/my_creds.json

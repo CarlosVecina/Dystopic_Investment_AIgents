@@ -14,7 +14,7 @@ RUN apt-get update \
 RUN mkdir -p {USER_CODE_PATH} \
     && pip3 install --no-cache-dir poetry==${POETRY_VERSION}
 
-COPY ./src ${USER_CODE_PATH}src/
+COPY ./dystopic_investment_aigents ${USER_CODE_PATH}dystopic_investment_aigents/
 COPY ./Makefile ${USER_CODE_PATH}Makefile
 COPY ./pyproject.toml ${USER_CODE_PATH}pyproject.toml
 COPY ./poetry.lock ${USER_CODE_PATH}poetry.lock

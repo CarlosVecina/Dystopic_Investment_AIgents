@@ -23,23 +23,23 @@ We are gathering all the financial context as possible, to make it available for
 
 Here we can find a summary **diagram of the project components**:
 
-![Data ingestion](./imgs/data_ingestion.png)
+![Data ingestion](./docs/imgs/data_ingestion.png)
 
 
 **[NOTE]** In recent days, my free trial of the GCP has been terminated. The project will remain inactive until the migration is completed, so I'm attaching some screenshots.
 
 Monitoring data ingestion & modelling: [**Looker Dashboard**](https://lookerstudio.google.com/s/qK5FsFOEH7A)
 
-![Looker screen](./imgs/looker_screen.png)
+![Looker screen](./docs/imgs/looker_screen.png)
 
 
 Here we have an screenshot of this project **running Docker containers**. They are defined in the `docker-compose` file, while two Docker images are created in `Dockerfile` and `Dockerfile_ingestion`.
 
-![Project Doecker containers](./imgs/docker_containers.png)
+![Project Doecker containers](./docs/imgs/docker_containers.png)
 
 All the ETLs are orchestated by Mage. Also, the consumer is also there, while the websocket with the Kafka producer is embebed in its own Docker image and running container.
 
-![Mage dags](./imgs/mage_dags.png)
+![Mage dags](./docs/imgs/mage_dags.png)
 
 
 ### Data ingestion data sources
@@ -57,7 +57,7 @@ There is a Mage pipeline with Product Hunt API data loading, transformation to P
 
 This data downloading is thought to be run with Mage, it is also possible to start a Docker container calling the whole `download_product_hunt` script as main. It allows you to periodically perform API calls from the container without needing Mage ETL runs, but loosing the features it provides.
 
-![PH Mage pipeline](./imgs/ph_mage_pipeline.png)
+![PH Mage pipeline](./docs/imgs/ph_mage_pipeline.png)
 
 
 - **News feeds (Batch with Mage and streaming with Kafka events):**
@@ -65,7 +65,7 @@ This data downloading is thought to be run with Mage, it is also possible to sta
 I've implemented two kind of news consumers. The **first one is an hourly financial news insertion.** It ingest raw data to Google Cloud Storage.
 **The second one consist in a websocket that holds an open connection and acts as a Kafka producer,** sending the news in Real Time through a Kafka queue to be consumed async by any service listening there. One of the listeners persists this news to Google Cloud Store. A second listener is a placeholder for an agent that may analize and perform any kind of action or analysis with that news.
 
-![Kafka UI](./imgs/kafka_ui_news_topic.png)
+![Kafka UI](./docs/imgs/kafka_ui_news_topic.png)
 
 - **Crunchbase data scrape (On-demand batch with Mage) To be replaced by its API:**
 
@@ -73,7 +73,7 @@ We are able to get main information regarding raised rounds, number of employees
 
 It is a temporal PoC workaround as they have a paid API to get all this info and much more.
 
-![Database entities](./imgs/db_entities.png)
+![Database entities](./docs/imgs/db_entities.png)
 
 <br>
 
@@ -162,11 +162,11 @@ As a way to share the cloud resources, I've created some screenshots. There we c
 
 Google Cloud Storage data lake screenshot:
 
-![Kafka UI](./imgs/google_cloud_storage.png)
+![Kafka UI](./docs/imgs/google_cloud_storage.png)
 
 Google Big Query screenshot:
 
-![Kafka UI](./imgs/google_big_query.png)
+![Kafka UI](./docs/imgs/google_big_query.png)
 
 <br>
 
