@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     downloader = YahooTickerDownloader(db=db)
     tickers = downloader.get_all_tickers(args.top_n)
-    df_news = downloader.download_ticker_news(tickers)
+    df_news = downloader.download_ticker_news(tickers).drop_duplicates("uuid")
 
     if args.dry_run:
         print(df_news)
