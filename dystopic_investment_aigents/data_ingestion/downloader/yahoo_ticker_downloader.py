@@ -54,9 +54,10 @@ class YahooTickerDownloader(BaseModel):
 
         result.columns = [camel_case_to_snake_case(col_name) for col_name in result.columns]        
         result["created_at"] = datetime.datetime.now()
-        result["related_tickers"] = result["related_tickers"].apply(lambda x: ", ".join(x))
+        #TODO: best format for this?
+        #result["related_tickers"] = result["related_tickers"].apply(lambda x: ", ".join(x))
 
-        news_columns = ['uuid', 'title', 'publisher', 'link', 'provider_publish_time', 'type', 'related_tickers', 'created_at']
+        news_columns = ['uuid', 'ticker', 'title', 'publisher', 'link', 'provider_publish_time', 'related_tickers', 'created_at']
         return result[news_columns]
     
     def download_ticker_stats(self, tickers: list[str]):
