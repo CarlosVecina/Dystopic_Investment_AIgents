@@ -1,6 +1,4 @@
-import datetime
-import pandas as pd
-from sqlalchemy import MetaData, Table, create_engine, text
+from sqlalchemy import MetaData, Table, create_engine
 
 
 class PostgresConfig:

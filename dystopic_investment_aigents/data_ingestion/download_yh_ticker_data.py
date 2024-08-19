@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     parser.add_argument("--start_date", help="Start date to download data")
     parser.add_argument("--end_date", help="End date to download data")
-    parser.add_argument("--all", help="All tickers or just the top ones", default=True)
+    parser.add_argument("--top_n", help="All tickers or just the top ones", default=400)
     parser.add_argument("--dry-run", help="Keep or not in the database", default=False)
 
     args=parser.parse_args()
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     ticker_downloader = YahooTickerDownloader(db=db)
     
-    tickers = ticker_downloader.get_all_tickers(args.all)
+    tickers = ticker_downloader.get_all_tickers(args.top_n)
 
     tickers_price = ticker_downloader.download_ticker_data(
         tickers=tickers, 
