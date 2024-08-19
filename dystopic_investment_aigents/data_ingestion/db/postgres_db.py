@@ -1,4 +1,5 @@
 from sqlalchemy import MetaData, Table, create_engine
+from sqlalchemy.dialects.postgresql import insert
 
 
 class PostgresConfig:
@@ -27,3 +28,16 @@ class PostgresDB:
     def insert(self, table_name, data):
         table = Table(table_name, self.metadata, autoload_with=self.engine)
         self.connection.execute(table.insert(), data)
+
+    @classmethod
+    def insert_on_conflict_nothing(
+        cls, table, conn, keys, data_iter, index_elements
+    ):
+        data = [dict(zip(keys, row)) for row in data_iter]
+        stmt = (
+            insert(table.table)
+            .values(data)
+            .on_conflict_do_nothing(index_elements=index_elements)
+        )
+        result = conn.execute(stmt)
+        return result.rowcount

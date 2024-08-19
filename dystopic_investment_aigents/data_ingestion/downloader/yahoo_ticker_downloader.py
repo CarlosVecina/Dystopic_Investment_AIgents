@@ -4,6 +4,7 @@ import yfinance as yf
 import pandas as pd
 
 from dystopic_investment_aigents.data_ingestion.db.financial_db import FinancialDB
+from dystopic_investment_aigents.utils.parse_utils import camel_case_to_snake_case
 
 class YahooTickerDownloader(BaseModel):
     db: FinancialDB | None = None
@@ -43,34 +44,20 @@ class YahooTickerDownloader(BaseModel):
 
         return result[ticker_columns]
     
-    def download_ticker_news(self, tickers: list[str], start_date: datetime.datetime, end_date: datetime.datetime):
-        if len(tickers) == 1:
-            ticker = yf.Ticker(" ".join(tickers))
-            breakpoint()
-            yf.utils.get_news_by_isin
-            ticker_news = ticker.news
-            ticker_news[0]
-            result = ticker.history(start=start_date, end=end_date)
-            result.reset_index(inplace=True)
-            result["ticker"] = " ".join(tickers)
-        else:
-            ticker = yf.Tickers(" ".join(tickers))
-            hist = ticker.history(start=start_date, end=end_date)
+    def download_ticker_news(self, tickers: list[str]) -> pd.DataFrame:
+        result = pd.DataFrame()
+        for ticker in tickers:
+            tt = yf.Ticker(ticker)
+            ticker_news = pd.DataFrame(tt.news)
+            ticker_news["ticker"] = ticker
+            result = pd.concat([result, ticker_news], ignore_index=True)
 
-            tickers_data = []
-            for ticker, data in hist.groupby(level=1, axis=1):
-                data.columns = data.columns.droplevel(1)
-                data.reset_index(inplace=True)
-                data.insert(0, 'ticker', ticker)
-                tickers_data.append(data)
-
-            result = pd.concat(tickers_data[1:])
-
-        result.columns = result.columns.str.lower().str.replace(" ", "_")
+        result.columns = [camel_case_to_snake_case(col_name) for col_name in result.columns]        
         result["created_at"] = datetime.datetime.now()
+        result["related_tickers"] = result["related_tickers"].apply(lambda x: ", ".join(x))
 
-        ticker_columns = ["date", "ticker", "created_at", "open", "high", "low", "close", "dividends", "stock_splits", "volume"]
-        return result[ticker_columns]
+        news_columns = ['uuid', 'title', 'publisher', 'link', 'provider_publish_time', 'type', 'related_tickers', 'created_at']
+        return result[news_columns]
     
     def download_ticker_stats(self, tickers: list[str]):
         df_info = pd.DataFrame()
