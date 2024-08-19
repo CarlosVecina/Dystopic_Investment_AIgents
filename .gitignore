@@ -49,3 +49,4 @@ logs/
 # end dbt Cloud content
 
 *.db
+*.csv
