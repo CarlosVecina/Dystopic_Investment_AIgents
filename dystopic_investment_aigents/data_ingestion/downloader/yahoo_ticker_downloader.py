@@ -47,10 +47,14 @@ class YahooTickerDownloader(BaseModel):
     def download_ticker_news(self, tickers: list[str]) -> pd.DataFrame:
         result = pd.DataFrame()
         for ticker in tickers:
-            tt = yf.Ticker(ticker)
-            ticker_news = pd.DataFrame(tt.news)
-            ticker_news["ticker"] = ticker
-            result = pd.concat([result, ticker_news], ignore_index=True)
+            try:
+                tt = yf.Ticker(ticker)
+                ticker_news = pd.DataFrame(tt.news)
+                ticker_news["ticker"] = ticker
+                result = pd.concat([result, ticker_news], ignore_index=True)
+            except Exception as e:
+                print(e)
+                pass
 
         result.columns = [camel_case_to_snake_case(col_name) for col_name in result.columns]        
         result["created_at"] = datetime.datetime.now()
