@@ -5,7 +5,7 @@ from lightrag.core import ModelClient, Generator, DataClass
 from lightrag.components.output_parsers import JsonOutputParser
 from pydantic import computed_field
 
-from dystopic_investment_aigents.agents.agent_base import Agent, Percentage
+from dystopic_investment_aigents.agents.base_agents.agent_base import Agent, Percentage
 
 
 @dataclass
