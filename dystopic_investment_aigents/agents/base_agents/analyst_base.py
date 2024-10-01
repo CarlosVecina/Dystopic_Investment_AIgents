@@ -1,10 +1,10 @@
 from typing import Any
 from pydantic import BaseModel, computed_field
 from sqlalchemy import Connection
-from lightrag.core import ModelClient, Generator
-from lightrag.components.agent import ReActAgent
+from adalflow.core import ModelClient, Generator
+from adalflow.components.agent import ReActAgent
 from abc import ABC, abstractmethod
-from dystopic_investment_aigents.agents.agent_base import Agent
+from dystopic_investment_aigents.agents.base_agents.agent_base import Agent
 
 
 class Report(BaseModel):

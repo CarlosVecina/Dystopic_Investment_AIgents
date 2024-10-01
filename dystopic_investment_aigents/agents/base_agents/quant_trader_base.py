@@ -1,13 +1,14 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Any
+import pandas as pd
 
 from pydantic import BaseModel, computed_field
-from lightrag.core import ModelClient, Generator, DataClass
-from lightrag.components.output_parsers import JsonOutputParser
+from adalflow.core import ModelClient, Generator, DataClass
+from adalflow.components.output_parsers import JsonOutputParser
 
-from dystopic_investment_aigents.agents.agent_base import Agent
-from dystopic_investment_aigents.agents.fund_manager_base import FundDirectives
+from dystopic_investment_aigents.agents.base_agents.agent_base import Agent
+from dystopic_investment_aigents.agents.base_agents.fund_manager_base import FundDirectives
 
 
 class Asset(BaseModel):
@@ -19,6 +20,16 @@ class Asset(BaseModel):
 
 class Portfolio(BaseModel):
     allocation: dict[Asset, float]
+
+    def to_df(self) -> pd.DataFrame:
+        data = []
+        for asset, weight in self.allocation.items():
+            data.append({
+                'asset_name': asset.name,
+                'asset_type': asset.type,
+                'weight': weight
+            })
+        return pd.DataFrame(data)
 
 
 @dataclass

@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Any
-from lightrag.core import ModelClient, Generator, DataClass
-from lightrag.components.output_parsers import JsonOutputParser
+from adalflow.core import ModelClient, Generator, DataClass
+from adalflow.components.output_parsers import JsonOutputParser
 from pydantic import computed_field
 
 from dystopic_investment_aigents.agents.base_agents.agent_base import Agent, Percentage
