@@ -9,7 +9,7 @@ from dystopic_investment_aigents.agents.base_agents.agent_base import Agent, Per
 
 
 @dataclass
-class FundDirectives(DataClass):
+class FundDirective(DataClass):
     industries: list[str] = field(
         metadata={
             "desc": "A list of different unique industries with thematic names as the dystopic future."
@@ -41,10 +41,10 @@ class FundManagerBase(ABC, Agent):
     @abstractmethod
     def create_directive(
         self,
-        past_fund_directive: FundDirectives | None = None,
+        past_fund_directive: FundDirective | None = None,
         context_summary: str | None = None,
         reports: list[str] | None = None,
-    ) -> FundDirectives: ...
+    ) -> FundDirective: ...
 
 
 class FundManagerAdal(FundManagerBase):
@@ -57,7 +57,7 @@ class FundManagerAdal(FundManagerBase):
     def _generator_brain(self) -> Generator:
         # TODO: abstract the prompting and the Adal brain
         parser = JsonOutputParser(
-            data_class=FundDirectives, return_data_class=True
+            data_class=FundDirective, return_data_class=True
         )
         return Generator(
             model_client=self.seniority,
@@ -75,10 +75,10 @@ class FundManagerAdal(FundManagerBase):
 
     def create_directive(
         self,
-        past_fund_directive: FundDirectives | None = None,
+        past_fund_directive: FundDirective | None = None,
         context_summary: str | None = None,
         reports: list[str] | None = None,
-    ) -> FundDirectives:
+    ) -> FundDirective:
         content = ""
         if past_fund_directive:
             content += f"The past fund directive was: {past_fund_directive} "

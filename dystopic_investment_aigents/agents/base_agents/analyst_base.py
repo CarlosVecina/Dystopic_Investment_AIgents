@@ -74,5 +74,5 @@ Instructions:
         response = self._generator_brain.call(prompt_kwargs=prompt_kwargs)
         return response.data
 
-    def generate_report(self, content: str) -> Report:
-        return "Here it is my report"
+    def generate_report(self, content: str, extra_instructions: list[str] | None = None) -> Report:
+        return self.summarize(content, extra_instructions)

@@ -8,7 +8,7 @@ from adalflow.core import ModelClient, Generator, DataClass
 from adalflow.components.output_parsers import JsonOutputParser
 
 from dystopic_investment_aigents.agents.base_agents.agent_base import Agent
-from dystopic_investment_aigents.agents.base_agents.fund_manager_base import FundDirectives
+from dystopic_investment_aigents.agents.base_agents.fund_manager_base import FundDirective
 
 
 class Asset(BaseModel):
@@ -49,7 +49,7 @@ class QuantTraderBase(ABC, Agent):
     @abstractmethod
     def operate(
         self,
-        fund_directives: FundDirectives | None = None,
+        fund_directive: FundDirective | None = None,
         past_portfolio: Portfolio | None = None,
     ) -> Operations: ...
 
@@ -96,15 +96,15 @@ class QuantTraderNaiveAdal(QuantTraderBase):
 
     def operate(
         self,
+        fund_directive: FundDirective,
         available_assets: (
-            list[Asset] | str
-        ),  # TODO: Define better this interface in order to have it clean and optimized for LLM calls
-        fund_directives: FundDirectives,
+            list[Asset] | str | None
+        ) = None,  # TODO: Define better this interface in order to have it clean and optimized for LLM calls
         past_portfolio: Portfolio | None = None,
     ) -> Operations:
         prompt_kwargs = {
             "input_str": f"""
-The industries given by the manager and their weights are: {str(fund_directives.to_dict(exclude=['narrative']))}
+The industries given by the manager and their weights are: {str(fund_directive.to_dict(exclude=['narrative']))}
         """
         }
         if past_portfolio:
