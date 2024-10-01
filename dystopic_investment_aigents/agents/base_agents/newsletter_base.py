@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Any
 
-from lightrag.components.output_parsers import JsonOutputParser
-from lightrag.core import DataClass, Generator, ModelClient
+from adalflow.components.output_parsers import JsonOutputParser
+from adalflow.core import DataClass, Generator, ModelClient
 from pydantic import computed_field
 
 from dystopic_investment_aigents.agents.base_agents.agent_base import Agent
@@ -13,7 +13,7 @@ from dystopic_investment_aigents.agents.base_agents.agent_base import Agent
 class Newsletter(DataClass):
     title: str
     main_topics: str
-    newsletter: str
+    body: str
 
 
 class NewsletterBase(ABC, Agent):
