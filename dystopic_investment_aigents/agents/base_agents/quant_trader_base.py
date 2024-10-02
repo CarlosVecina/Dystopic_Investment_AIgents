@@ -17,8 +17,8 @@ class Asset(BaseModel):
 
     model_config = {"frozen": True}
 
-
-class Portfolio(BaseModel):
+@dataclass
+class Portfolio(DataClass):
     allocation: dict[Asset, float]
 
     def to_df(self) -> pd.DataFrame:
@@ -63,7 +63,7 @@ class QuantTraderNaiveAdal(QuantTraderBase):
     @property
     def _generator_brain(self) -> Generator:
         # TODO: abstract the prompting and the Adal brain
-        parser = JsonOutputParser(data_class=Operations, return_data_class=True)
+        parser = JsonOutputParser(data_class=Portfolio, return_data_class=True)
         return Generator(
             model_client=self.seniority,
             model_kwargs=self.seniority_args,

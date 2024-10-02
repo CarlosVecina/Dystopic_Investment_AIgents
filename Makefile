@@ -25,6 +25,9 @@ mage-terraform-destroy:
 run-app:
 	poetry run streamlit run portfolio_app/app.py   
 
+run-fund:
+	poetry run python dystopic_investment_aigents/agents/fund.py
+
 run-crunchbase-scraper:
 	poetry run python dystopic_investment_aigents/data_ingestion/download_crunchbase_data.py --is_local=True
 

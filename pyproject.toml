@@ -31,6 +31,7 @@ langchainhub = "^0.1.15"
 streamlit = "^1.37.0"
 yfinance = "^0.2.41"
 adalflow = "^0.2.0"
+matplotlib = "^3.9.2"
 
 [tool.poetry.group.dev.dependencies]
 #websockets = "10"
