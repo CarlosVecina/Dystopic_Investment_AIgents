@@ -3,6 +3,7 @@ from dataclasses import dataclass, field
 from typing import Any
 from adalflow.core import ModelClient, Generator, DataClass
 from adalflow.components.output_parsers import JsonOutputParser
+from langsmith import traceable
 from pydantic import computed_field
 
 from dystopic_investment_aigents.agents.base_agents.agent_base import Agent, Percentage
@@ -73,6 +74,7 @@ class FundManagerAdal(FundManagerBase):
             output_processors=parser,
         )
 
+    @traceable(run_type="chain")
     def create_directive(
         self,
         past_fund_directive: FundDirective | None = None,

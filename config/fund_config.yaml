@@ -4,7 +4,7 @@ manager:
   personality:
     mood: optimistic
     risk_tolerance: 0.5
-  seniority: !openai_client {}
+  seniority: !openai_client_traceable {}
   seniority_args:
     model: gpt-4o-mini
     temperature: 0.0
@@ -12,7 +12,7 @@ analyst:
   - personality:
       mood: optimistic
       risk_tolerance: 0.5
-    seniority: !openai_client {}
+    seniority: !openai_client_traceable {}
     seniority_args:
       model: gpt-4o-mini
       temperature: 0.0
@@ -20,7 +20,7 @@ trader:
   personality:
     mood: optimistic
     risk_tolerance: 0.5
-  seniority: !openai_client {}
+  seniority: !openai_client_traceable {}
   seniority_args:
     model: gpt-4o-mini
     temperature: 0.9

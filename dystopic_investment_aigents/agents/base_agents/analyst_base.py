@@ -1,4 +1,5 @@
 from typing import Any
+from langsmith import traceable
 from pydantic import BaseModel, computed_field
 from sqlalchemy import Connection
 from adalflow.core import ModelClient, Generator
@@ -58,7 +59,8 @@ Instructions:
 - Utilize a {self.personality.mood.value} tone."""
             },
         )
-
+    
+    @traceable(run_type="chain")
     def summarize(
         self, content: str, extra_instructions: list[str] | None = None
     ) -> str:

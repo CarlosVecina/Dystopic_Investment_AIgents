@@ -2,13 +2,15 @@ import os
 import pathlib
 from datetime import datetime
 
-import pandas as pd
-from adalflow import GeneratorOutput
 from dotenv import load_dotenv
-from openai import BaseModel
-from sqlalchemy import Engine, text
 
 load_dotenv()
+
+import pandas as pd
+from adalflow import GeneratorOutput
+from langsmith import traceable
+from openai import BaseModel
+from sqlalchemy import Engine, text
 
 from dystopic_investment_aigents.agents.base_agents.analyst_base import AnalystAdal
 from dystopic_investment_aigents.agents.base_agents.fund_manager_base import (
@@ -129,6 +131,7 @@ class Fund(BaseModel):
 
         print(f"Final portfolio persisted with {len(data_to_insert)} operations.")
 
+    @traceable
     def run(self) -> None:
         # 1. Analysts analyze the market
         df_news = self._get_lastest_news(
@@ -158,7 +161,6 @@ class Fund(BaseModel):
             try:
                 self._persist_final_portfolio(operations.data.allocation)
             except Exception as e:
-                breakpoint()
                 print(f"Error persisting final portfolio: {e}")
 
         return operations

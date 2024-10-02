@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Any
+from langsmith import traceable
 import pandas as pd
 
 from pydantic import BaseModel, computed_field
@@ -93,7 +94,8 @@ class QuantTraderNaiveAdal(QuantTraderBase):
             },
             output_processors=parser,
         )
-
+    
+    @traceable(run_type="chain")
     def operate(
         self,
         fund_directive: FundDirective,
