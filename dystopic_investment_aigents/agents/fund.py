@@ -1,7 +1,9 @@
+import os
+import pathlib
 from datetime import datetime
 
-from adalflow import GeneratorOutput
 import pandas as pd
+from adalflow import GeneratorOutput
 from dotenv import load_dotenv
 from openai import BaseModel
 from sqlalchemy import Engine, text
@@ -14,7 +16,6 @@ from dystopic_investment_aigents.agents.base_agents.fund_manager_base import (
     FundManagerAdal,
 )
 from dystopic_investment_aigents.agents.base_agents.quant_trader_base import (
-    Operations,
     Portfolio,
     QuantTraderNaiveAdal,
 )
@@ -71,19 +72,21 @@ class Fund(BaseModel):
 
     def _get_last_portfolio(self) -> Portfolio | None:
         return None
-    
+
     def _persist_final_portfolio(self, operations: dict[str, float]) -> None:
-        from sqlalchemy import Table, Column, String, Float, DateTime, MetaData
+        from sqlalchemy import Column, DateTime, Float, MetaData, String, Table
 
         # Create or get the portfolio table
         metadata = MetaData()
-        portfolio_table = Table('portfolio', metadata,
-            Column('asset_name', String(255)),
-            Column('weight', Float),
-            Column('asset_short_name', String(255)),
-            Column('asset_type', String(255)),
-            Column('portfolio_trader', String(255)),
-            Column('created_at', DateTime)
+        portfolio_table = Table(
+            "portfolio",
+            metadata,
+            Column("asset_name", String(255)),
+            Column("weight", Float),
+            Column("asset_short_name", String(255)),
+            Column("asset_type", String(255)),
+            Column("portfolio_trader", String(255)),
+            Column("created_at", DateTime),
         )
 
         # Create the table if it doesn't exist
@@ -91,15 +94,32 @@ class Fund(BaseModel):
 
         # Prepare the data to be inserted
         current_time = datetime.now()
+
+        parent_dir = pathlib.Path(__file__).parent.parent
+        symbol_mapping = pd.read_csv(
+            os.path.join(parent_dir, "utils", "symbol_mapping.csv"), sep=";"
+        )[["Company", "Symbol"]]
+
         data_to_insert = [
             {
-                'asset_name': k,
-                'weight': v,
-                'asset_short_name': None,
-                'asset_type': 'stock',
-                'portfolio_trader': self.trader.__class__.__name__,
-                'created_at': current_time
-            } for k,v in operations.items()
+                "asset_name": k,
+                "weight": v,
+                "asset_short_name": next(
+                    iter(
+                        symbol_mapping.loc[
+                            symbol_mapping["Company"]
+                            .str.lower()
+                            .str.contains(k.lower()),
+                            "Symbol",
+                        ].values
+                    ),
+                    None,
+                ),
+                "asset_type": "stock",
+                "portfolio_trader": self.trader.__class__.__name__,
+                "created_at": current_time,
+            }
+            for k, v in operations.items()
         ]
 
         # Insert the data into the database
