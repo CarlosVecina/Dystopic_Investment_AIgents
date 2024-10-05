@@ -87,10 +87,10 @@ class FundManagerAdal(FundManagerBase):
         if context_summary:
             content += f"Here it is some extra context information summary: {context_summary} "
         # TODO: Add the reports to the content
-        #if reports:
-        #    content += f"Here it is some experienced analyst reports: {reports} "
+        if reports:
+            content += f"Here it is some experienced analyst reports: {reports} "
         prompt_kwargs = {"input_str": content}
         self._generator_brain.print_prompt(**prompt_kwargs)
         response = self._generator_brain.call(prompt_kwargs=prompt_kwargs)
 
-        return response
+        return response.data

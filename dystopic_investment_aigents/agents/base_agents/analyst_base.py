@@ -72,5 +72,5 @@ class AnalystAdal(AnalystBase):
         response = self._generator_brain.call(prompt_kwargs=prompt_kwargs)
         return response.data
 
-    def generate_report(self, content: str, extra_instructions: list[str] | None = None) -> Report:
+    def generate_report(self, content: str, extra_instructions: list[str] | None = None) -> str: #Report:
         return self.summarize(content, extra_instructions)
