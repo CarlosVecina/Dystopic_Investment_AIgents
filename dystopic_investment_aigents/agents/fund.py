@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import pandas as pd
-from adalflow import GeneratorOutput
+from adalflow import GeneratorOutput, JsonOutputParser
 from langsmith import traceable
 from openai import BaseModel
 from sqlalchemy import Engine, text
@@ -74,6 +74,41 @@ class Fund(BaseModel):
 
     def _get_last_portfolio(self) -> Portfolio | None:
         return None
+    
+    def _persist_directive(self, directive: FundDirective) -> None:
+        from sqlalchemy import Column, DateTime, Float, MetaData, String, Table
+        from sqlalchemy.dialects.postgresql import ARRAY
+
+        # Create or get the fund_directive table
+        metadata = MetaData()
+        fund_directive_table = Table(
+            "fund_directives",
+            metadata,
+            Column("industries", ARRAY(String)),
+            Column("real_industries", ARRAY(String)),
+            Column("weights", ARRAY(Float)),
+            Column("narrative", String),
+            Column("created_at", DateTime)
+        )
+
+        # Create the table if it doesn't exist
+        metadata.create_all(self.engine)
+
+        # Prepare the data to be inserted
+        current_time = datetime.now()
+
+        data_to_insert = {
+            "industries": directive.industries,
+            "real_industries": directive.real_industries,
+            "weights": directive.weights,
+            "narrative": directive.narrative,
+            "created_at": current_time
+        }
+
+        # Insert the data
+        with self.engine.connect() as connection:
+            connection.execute(fund_directive_table.insert().values(data_to_insert))
+            connection.commit()
 
     def _persist_final_portfolio(self, operations: dict[str, float]) -> None:
         from sqlalchemy import Column, DateTime, Float, MetaData, String, Table
@@ -151,6 +186,7 @@ class Fund(BaseModel):
         directive = self.manager.create_directive(
             past_fund_directive=last_directive, reports=list_analysis
         )
+        self._persist_directive(directive)
 
         # 3. Trader executes portfolio
         last_portfolio = self._get_last_portfolio()
