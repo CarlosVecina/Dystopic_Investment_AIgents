@@ -7,6 +7,7 @@ from langsmith import traceable
 from pydantic import computed_field
 
 from dystopic_investment_aigents.agents.base_agents.agent_base import Agent, Percentage
+from dystopic_investment_aigents.agents.base_agents.prompts.agent_prompt import FUND_MANAGER_AGENTS_SYSTEM_PROMPT
 
 
 @dataclass
@@ -63,12 +64,9 @@ class FundManagerAdal(FundManagerBase):
         return Generator(
             model_client=self.seniority,
             model_kwargs=self.seniority_args,
+            template=FUND_MANAGER_AGENTS_SYSTEM_PROMPT,
             prompt_kwargs={
-                "task_desc_str": f"""
-                You are a Fund Manager for a dystopic fund. Your task is to select the industries that will succeed in a dystopic future as the one
-                is pictured by Orwell in 1984. Include other dystopic general themes like defense and surveillance.
-                - Utilize a {self.personality.mood.value} tone for the narrative. 
-                """,
+                "personality": f"I am {self.personality.mood.value} and I have a risk tolerance of {self.personality.risk_tolerance*100} %",
                 "output_format_str": parser.format_instructions(),
             },
             output_processors=parser,
@@ -81,15 +79,14 @@ class FundManagerAdal(FundManagerBase):
         context_summary: str | None = None,
         reports: list[str] | None = None,
     ) -> FundDirective:
-        content = ""
+        prompt_kwargs = {}
         if past_fund_directive:
-            content += f"The past fund directive was: {past_fund_directive} "
+            prompt_kwargs["past_fund_directives"] = past_fund_directive
         if context_summary:
-            content += f"Here it is some extra context information summary: {context_summary} "
-        # TODO: Add the reports to the content
-        #if reports:
-        #    content += f"Here it is some experienced analyst reports: {reports} "
-        prompt_kwargs = {"input_str": content}
+            prompt_kwargs["extra_instructions"] = f"Here it is some extra context information summary: {context_summary} "
+        if reports:
+            prompt_kwargs["input_str"] = f"Here it is some experienced analyst reports: REPORT: {"\n \n REPORT: ".join(reports)}"
+        
         self._generator_brain.print_prompt(**prompt_kwargs)
         response = self._generator_brain.call(prompt_kwargs=prompt_kwargs)
 
