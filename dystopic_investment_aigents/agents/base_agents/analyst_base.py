@@ -6,6 +6,7 @@ from adalflow.core import ModelClient, Generator
 from adalflow.components.agent import ReActAgent
 from abc import ABC, abstractmethod
 from dystopic_investment_aigents.agents.base_agents.agent_base import Agent
+from dystopic_investment_aigents.agents.base_agents.prompts.agent_prompt import ANALYST_AGENTS_SYSTEM_PROMPT
 
 
 class Report(BaseModel):
@@ -50,13 +51,9 @@ class AnalystAdal(AnalystBase):
         return Generator(
             model_client=self.seniority,
             model_kwargs=self.seniority_args,
+            template=ANALYST_AGENTS_SYSTEM_PROMPT,
             prompt_kwargs={
-                "task_desc_str": f"""You are a helpful analyst. Your task is to summarize the following text. If there is no extra instruction regarding lenght, do it in one or two sentences.
-Instructions:
-- Please, follow the input language for the output.
-- Do not add any information that is not present in the input.
-- Do not include your opinion or interpretation.
-- Utilize a {self.personality.mood.value} tone."""
+                "personality": f"I am {self.personality.mood.value} and I have a risk tolerance of {self.personality.risk_tolerance*100} %"
             },
         )
     
@@ -66,11 +63,10 @@ Instructions:
     ) -> str:
         prompt_kwargs = {"input_str": content}
         if extra_instructions:
-            prompt_kwargs["task_desc_str"] = (
-                self._generator_brain.prompt_kwargs["task_desc_str"]
-            )
+            formatted_extra_instructions = ""
             for inst in extra_instructions:
-                prompt_kwargs["task_desc_str"] += "\n- " + inst
+                formatted_extra_instructions += "- " + inst + " \n"
+            prompt_kwargs["extra_instructions"] = formatted_extra_instructions
 
         self._generator_brain.print_prompt(**prompt_kwargs)
         response = self._generator_brain.call(prompt_kwargs=prompt_kwargs)
