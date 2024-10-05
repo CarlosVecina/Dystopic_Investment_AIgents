@@ -90,4 +90,4 @@ class FundManagerAdal(FundManagerBase):
         self._generator_brain.print_prompt(**prompt_kwargs)
         response = self._generator_brain.call(prompt_kwargs=prompt_kwargs)
 
-        return response
+        return response.data
