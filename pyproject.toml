@@ -13,39 +13,41 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.11"
-vectorbt = "^0.26.0"
 python-dotenv = "^1.0.1"
-nbformat = "^5.10.3"
 pydantic = "^2.7.0"
-rel = "^0.4.9.9"
-psycopg2 = "^2.9.9"
-vecs = "^0.4.3"
-pyarrow = "^17.0.0"
-supabase = "^2.5.3"
-ipykernel = "^6.29.4"
-# scrape
-beautifulsoup4 = "*"
+pydantic-settings = "^2.7.0"
 pandas = "*"
+pyarrow = "^17.0.0"
+
+[tool.poetry.group.data_ingestion.dependencies]
+kafka-python = "^2.0.2"
+beautifulsoup4 = "*"
 selenium = "*"
 webdriver-manager = "*"
 undetected-chromedriver = "*"
-#agents
+vectorbt = "^0.26.0"
+yfinance = "^0.2.41"
+nbformat = "^5.10.3"
+rel = "^0.4.9.9"
+psycopg2 = "^2.9.9"
+vecs = "^0.4.3"
+supabase = "^2.5.3"
+
+[tool.poetry.group.agents.dependencies]
 langchain-openai = "^0.1.3"
 langchainhub = "^0.1.15"
-#app
-streamlit = "^1.37.0"
-yfinance = "^0.2.41"
-adalflow = "^0.2.0"
-matplotlib = "^3.9.2"
 langsmith = "^0.1.129"
-seaborn = "^0.13.2"
-pypdf = "^5.0.1"
 torch = "2.3"
 safetensors = ">=0.4.3"
 sentence-transformers = "^3.2.0"
 transformers = "^4.45.2"
-pre-commit = "^4.0.1"
-pydantic-settings = "^2.7.0"
+pypdf = "^5.0.1"
+adalflow = "^0.2.0"
+
+[tool.poetry.group.streamlit.dependencies]
+streamlit = "^1.37.0"
+matplotlib = "^3.9.2"
+seaborn = "^0.13.2"
 
 [tool.poe.tasks]
 ## PyTorch with CUDA 11.1. If PyTorch is imported first, importing Tensorflow will detect CUDA + cuDNN bundled with PyTorch
@@ -54,10 +56,9 @@ pydantic-settings = "^2.7.0"
 force-cuda11 = "pip install torch==2.3.0 xformers --index-url https://download.pytorch.org/whl/cu121"
 
 [tool.poetry.group.dev.dependencies]
-#websockets = "10"
-kafka-python = "^2.0.2"
-weaviate-client = "^4.6.0"
+pre-commit = "^4.0.1"
 poethepoet = "^0.10.0"
+ipykernel = "^6.29.4"
 
 
 [build-system]

@@ -66,16 +66,12 @@ For now, just simple financial indicators are performed, apart for some parsing 
 
 ### 🛠 Development
 
-This projects makes use of Python 3.10 and manages dependencies with Poetry. Also, some useful Make shortcut commands have been added.
+This projects makes use of Python 3.11 and manages dependencies with Poetry. Also, some useful Make shortcut commands have been added.
 If you want to interact with any piece of code not dockerized or in the Makefile commands, you should activate Poetry virtual env.
 
-Make sure **you have Poetry, Python 3.10 and Terraform** installed beforehand, then:
+Make sure **you have Poetry, Python 3.11 (and `poetry env use 3.11` in your location) and Terraform** installed beforehand, then:
 
-`poetry env use 3.10`
-
-Install de poetry.lock with:
-
-`poetry install`
+`make install-data-ingestion`
 
 and activate the shell inside the virtual environment or run an specific command in that v. env:
 
@@ -84,14 +80,6 @@ and activate the shell inside the virtual environment or run an specific command
 The project can be launched both in local (*Docker containers + GCloud connections*) and in cloud (*Terraformed GoogleStorage, GoogleBQ and Cloud Run*). More details can be found in the next section.
 
 Note that it uses envvars or a .env file. The project is expecting the following environment variables:
-
-`ALPACA_ENDPOINT = "https://paper-api.alpaca.markets/v2"`
-
-`APCA_API_KEY_ID`
-
-`APCA_API_SECRET_KEY`
-
-For get [Alpaca Market token for free, just go to their page](https://alpaca.markets/)
 
 `POSTGRES_DBNAME = "pg-fin-data"`
 
