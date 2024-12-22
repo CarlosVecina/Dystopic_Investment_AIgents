@@ -1,6 +1,6 @@
 name: Dystopic Fund
 description: A fund that invests in the future
-manager: 
+manager:
   personality:
     mood: optimistic
     risk_tolerance: 0.5
@@ -9,13 +9,13 @@ manager:
     model: gpt-4o-mini
     temperature: 0.0
 analyst:
-  - personality:
-      mood: optimistic
-      risk_tolerance: 0.5
-    seniority: !openai_client_traceable {}
-    seniority_args:
-      model: gpt-4o-mini
-      temperature: 0.0
+  personality:
+    mood: optimistic
+    risk_tolerance: 0.5
+  seniority: !openai_client_traceable {}
+  seniority_args:
+    model: gpt-4o-mini
+    temperature: 0.0
 trader:
   personality:
     mood: optimistic
@@ -24,4 +24,3 @@ trader:
   seniority_args:
     model: gpt-4o-mini
     temperature: 0.9
-

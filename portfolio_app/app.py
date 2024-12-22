@@ -1,4 +1,3 @@
-import datetime
 import os
 
 import pandas as pd
@@ -9,8 +8,10 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
 from dystopic_investment_aigents.data_ingestion.db.postgres_db import PostgresConfig
-from dystopic_investment_aigents.utils.portfolio_utils import (expand_df_dates,
-                                       generate_portfolio_evolution)
+from dystopic_investment_aigents.utils.portfolio_utils import (
+    expand_df_dates,
+    generate_portfolio_evolution,
+)
 
 # Base de datos
 load_dotenv()
@@ -104,9 +105,12 @@ with col1[0]:
         "<h2 style='color: black;'><span class='underline--magical'>Manager AIgent narrative</span></h2>",
         unsafe_allow_html=True,
     )
-    df_narrative = load_data("SELECT * FROM fund_directives WHERE created_at = (SELECT max(created_at) FROM fund_directives)", db_uri)
+    df_narrative = load_data(
+        "SELECT * FROM fund_directives WHERE created_at = (SELECT max(created_at) FROM fund_directives)",
+        db_uri,
+    )
     st.write(df_narrative["narrative"].values[0], unsafe_allow_html=True)
-    st.write(df_narrative[['industries', 'real_industries', 'weights']])
+    st.write(df_narrative[["industries", "real_industries", "weights"]])
 
     # 3. PAST PERFORMANCE
     st.markdown(
@@ -115,9 +119,9 @@ with col1[0]:
     )
 
     df_current_portfolio = df_portfolio.copy()
-    df_current_portfolio["date"] = df_current_portfolio[
-        "created_at"
-    ].dt.date.astype("datetime64[ns]") #- datetime.timedelta(days=60)
+    df_current_portfolio["date"] = df_current_portfolio["created_at"].dt.date.astype(
+        "datetime64[ns]"
+    )  # - datetime.timedelta(days=60)
     df_current_portfolio = generate_portfolio_evolution(
         df_current_portfolio, "2024-07-01", "2024-10-27", "left", date_column="date"
     )
@@ -148,19 +152,32 @@ with col1[0]:
         * 100
     )
     df_portfolio["created_at"].dt.date.astype("datetime64[ns]")
-    agg_portfolio_value["value_perc_vs_prev"].fillna(0, inplace=True)  # Handle first row
+    agg_portfolio_value["value_perc_vs_prev"].fillna(
+        0, inplace=True
+    )  # Handle first row
 
     # Get unique dates from df_portfolio
     unique_dates = df_portfolio["created_at"].dt.date.unique()
-    
+
     # Create a mask for rows with dates in unique_dates
     mask = agg_portfolio_value["date"].isin(unique_dates)
-    
-    agg_portfolio_value["value_perc_vs_prev"] = agg_portfolio_value["value_perc_vs_prev"].where(~mask, pd.NA)
-    agg_portfolio_value["value_perc_vs_prev"] = agg_portfolio_value["value_perc_vs_prev"].fillna(value=0.0)
-    agg_portfolio_value["value_perc_vs_init"] = agg_portfolio_value["value_perc_vs_prev"].cumsum()
 
-    agg_portfolio_value["value_adjusted"] = agg_portfolio_value["value"][0] + agg_portfolio_value["value"][0]*agg_portfolio_value["value_perc_vs_init"]/100
+    agg_portfolio_value["value_perc_vs_prev"] = agg_portfolio_value[
+        "value_perc_vs_prev"
+    ].where(~mask, pd.NA)
+    agg_portfolio_value["value_perc_vs_prev"] = agg_portfolio_value[
+        "value_perc_vs_prev"
+    ].fillna(value=0.0)
+    agg_portfolio_value["value_perc_vs_init"] = agg_portfolio_value[
+        "value_perc_vs_prev"
+    ].cumsum()
+
+    agg_portfolio_value["value_adjusted"] = (
+        agg_portfolio_value["value"][0]
+        + agg_portfolio_value["value"][0]
+        * agg_portfolio_value["value_perc_vs_init"]
+        / 100
+    )
 
     # 📈 3.2 Portfolio performance Plot
     negative_traces_df = expand_df_dates(
@@ -186,12 +203,8 @@ with col1[0]:
             showlegend=False,
         ),
     )
-    fig.update_traces(
-        selector=lambda x: x["name"] != "negative", line_color="#147852"
-    )
-    fig.update_traces(
-        selector=lambda x: x["name"] == "negative", line_color="#c61a09"
-    )
+    fig.update_traces(selector=lambda x: x["name"] != "negative", line_color="#147852")
+    fig.update_traces(selector=lambda x: x["name"] == "negative", line_color="#c61a09")
     fig.update_legends(overwrite=True)
 
     st.plotly_chart(fig)

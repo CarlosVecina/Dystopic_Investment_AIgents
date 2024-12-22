@@ -4,23 +4,26 @@ from datetime import datetime
 
 from dotenv import load_dotenv
 
-load_dotenv()
-
 import pandas as pd
-from adalflow import GeneratorOutput, JsonOutputParser
+from adalflow import GeneratorOutput
 from langsmith import traceable
 from openai import BaseModel
 from sqlalchemy import Engine, text
 
-from dystopic_investment_aigents.agents.base_agents.analyst_base import AnalystAdal
 from dystopic_investment_aigents.agents.base_agents.fund_manager_base import (
     FundDirective,
+)
+from dystopic_investment_aigents.agents.impl_agents.fund_manager_adal import (
     FundManagerAdal,
 )
 from dystopic_investment_aigents.agents.base_agents.quant_trader_base import (
+    Operations,
     Portfolio,
+)
+from dystopic_investment_aigents.agents.impl_agents.quant_trader_adal import (
     QuantTraderNaiveAdal,
 )
+from dystopic_investment_aigents.agents.impl_agents.analyst_adal import AnalystAdal
 from dystopic_investment_aigents.utils.db_utils import supabase_engine
 from dystopic_investment_aigents.utils.yaml_utils import YAMLUtils
 
@@ -28,18 +31,20 @@ NEWS_TABLE = "news_yh"
 NEWS_TABLE_DATE_COL = "created_at"
 NEWS_TABLE_CONTENT_COL = "related_tickers"
 
+load_dotenv()
+
 
 class Fund(BaseModel):
     name: str
     description: str
     manager: FundManagerAdal
-    analyst: list[AnalystAdal]
+    analyst: AnalystAdal | list[AnalystAdal]
     trader: QuantTraderNaiveAdal
     possible_assets: list[str]
     engine: Engine
     portfolio: Portfolio | None = None
 
-    dry_run: bool = False
+    dry_run: bool = True
 
     model_config = {"arbitrary_types_allowed": True}
 
@@ -74,7 +79,7 @@ class Fund(BaseModel):
 
     def _get_last_portfolio(self) -> Portfolio | None:
         return None
-    
+
     def _persist_directive(self, directive: FundDirective) -> None:
         from sqlalchemy import Column, DateTime, Float, MetaData, String, Table
         from sqlalchemy.dialects.postgresql import ARRAY
@@ -88,7 +93,7 @@ class Fund(BaseModel):
             Column("real_industries", ARRAY(String)),
             Column("weights", ARRAY(Float)),
             Column("narrative", String),
-            Column("created_at", DateTime)
+            Column("created_at", DateTime),
         )
 
         # Create the table if it doesn't exist
@@ -102,7 +107,7 @@ class Fund(BaseModel):
             "real_industries": directive.real_industries,
             "weights": directive.weights,
             "narrative": directive.narrative,
-            "created_at": current_time
+            "created_at": current_time,
         }
 
         # Insert the data
@@ -161,7 +166,7 @@ class Fund(BaseModel):
 
         # Insert the data into the database
         with self.engine.connect() as connection:
-            result = connection.execute(portfolio_table.insert().values(data_to_insert))
+            connection.execute(portfolio_table.insert().values(data_to_insert))
             connection.commit()
 
         print(f"Final portfolio persisted with {len(data_to_insert)} operations.")
@@ -177,6 +182,9 @@ class Fund(BaseModel):
         # Filter out null values and extract 'body' column content
         news_content = df_news["body"].dropna().to_string(index=False)
 
+        if isinstance(self.analyst, AnalystAdal):
+            self.analyst = [self.analyst]
+
         list_analysis = []
         for analyst in self.analyst:
             list_analysis.append(analyst.generate_report(news_content))
@@ -190,12 +198,14 @@ class Fund(BaseModel):
 
         # 3. Trader executes portfolio
         last_portfolio = self._get_last_portfolio()
-        operations: GeneratorOutput[Portfolio] = self.trader.operate(
+        operations: GeneratorOutput[Operations] = self.trader.operate(
             fund_directive=directive, past_portfolio=last_portfolio
         )
         if not self.dry_run:
             try:
-                self._persist_final_portfolio(operations.data.allocation)
+                self._persist_final_portfolio(
+                    operations.data.final_portfolio.allocation
+                )
             except Exception as e:
                 print(f"Error persisting final portfolio: {e}")
 

@@ -4,7 +4,7 @@ Dystopic stock &amp; investment indexes 📈 managed by AI agents 🤖.
 
 Welcome to Dystopic Investment AIgents, where dystopic stock and investment indexes are managed by AI agents. Our project is an innovative endeavor that combines data engineering with artificial intelligence to provide insights and manage investments in a dystopian-themed environment.
 
-The project is composed by two main components: data ingestion and AI agents. 
+The project is composed by two main components: data ingestion and AI agents.
 
 <br>
 

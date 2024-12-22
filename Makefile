@@ -1,11 +1,11 @@
 .PHONY: data-lake-terraform-apply data-lake-terraform-destroy mage-terraform-apply  mage-terraform-destroy start-project install-env generate-mage-requirements run-app run-crunchbase-scraper
 
 data-lake-terraform-apply:
-	cd dystopic_investment_aigents/data_ingestion/terraform/data_lake_terraform/ 
+	cd dystopic_investment_aigents/data_ingestion/terraform/data_lake_terraform/
 	terraform apply
 
 data-lake-terraform-destroy:
-	cd dystopic_investment_aigents/data_ingestion/terraform/data_lake_terraform/ 
+	cd dystopic_investment_aigents/data_ingestion/terraform/data_lake_terraform/
 	terraform apply
 
 generate-mage-requirements:
@@ -15,15 +15,15 @@ install-env:
 	poetry install --without scrape
 
 mage-terraform-apply:
-	cd dystopic_investment_aigents/data_ingestion/terraform/mage_terraform/ 
+	cd dystopic_investment_aigents/data_ingestion/terraform/mage_terraform/
 	terraform apply
 
 mage-terraform-destroy:
-	cd dystopic_investment_aigents/data_ingestion/terraform/mage_terraform/ 
+	cd dystopic_investment_aigents/data_ingestion/terraform/mage_terraform/
 	terraform destroy
 
 run-app:
-	poetry run streamlit run portfolio_app/app.py   
+	poetry run streamlit run portfolio_app/app.py
 
 run-fund:
 	poetry run python dystopic_investment_aigents/agents/fund.py
@@ -37,3 +37,7 @@ start-project:
 
 start-websocket-kafka-producer:
 	poetry run python3 dystopic_investment_aigents/data_ingestion/download_financial_news.py --url wss://paper-api.alpaca.markets/stream
+
+install:
+	poetry install --without scrape
+	poe force-cuda11

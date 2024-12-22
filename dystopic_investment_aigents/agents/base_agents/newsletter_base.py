@@ -24,7 +24,8 @@ class NewsletterBase(ABC, Agent):
 
     @abstractmethod
     def create_newsletter(
-        self, context: str  # TODO: define the inputs for the newsletter
+        self,
+        context: str,  # TODO: define the inputs for the newsletter
     ) -> Newsletter: ...
 
 
@@ -33,8 +34,8 @@ class NewsletterAdal(NewsletterBase):
     def name(self) -> str:
         return "NewsletterAdal"
 
-    @computed_field()
     @property
+    @computed_field()
     def _generator_brain(self) -> Generator:
         # TODO: abstract the prompting and the Adal brain
         parser = JsonOutputParser(data_class=Newsletter, return_data_class=True)
@@ -52,7 +53,7 @@ Writing Guidelines:
 - Visuals: Incorporate relevant visuals (charts, graphs, images) to enhance understanding.
 - Length: Aim for a length of 1000-1500 words, ensuring content is comprehensive yet digestible.
 - Utilize a {self.personality.mood.value} tone for the narrative.
-- Add the disclaimer about informational purposes only and does not constitute financial advice. 
+- Add the disclaimer about informational purposes only and does not constitute financial advice.
 
 You will be provider with those last week inputs, and you should generate a newsletter with the main topics and the newsletter content.
                 """,
