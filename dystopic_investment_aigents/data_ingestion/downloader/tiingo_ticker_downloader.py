@@ -1,12 +1,13 @@
 import datetime
-import time
-from dotenv import load_dotenv
-import pandas as pd
-from pydantic import BaseModel
-import requests
 import os
+import time
 
-from dystopic_investment_aigents.data_ingestion.db.postgres_db import FinancialDB
+import pandas as pd
+import requests
+from dotenv import load_dotenv
+from pydantic import BaseModel
+
+from dystopic_investment_aigents.data_ingestion.db.financial_db import FinancialDB
 
 load_dotenv()
 
@@ -120,9 +121,7 @@ class TiingoDownloader(BaseModel):
             n_elements = len(tickers)
             batches = [
                 (i - n_elements_per_batch, i)
-                for i in range(
-                    n_elements_per_batch, n_elements, n_elements_per_batch
-                )
+                for i in range(n_elements_per_batch, n_elements, n_elements_per_batch)
             ]
             batches.append((batches[-1][1], n_elements))
         else:
@@ -140,9 +139,7 @@ class TiingoDownloader(BaseModel):
                 )
                 offset += limit
                 exhausted = df_response.shape[0] == 0
-                df_news = pd.concat([df_news, df_response]).drop_duplicates(
-                    subset="id"
-                )
+                df_news = pd.concat([df_news, df_response]).drop_duplicates(subset="id")
 
         return df_news
 

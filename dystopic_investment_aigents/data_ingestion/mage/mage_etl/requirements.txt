@@ -1,0 +1,4 @@
+vectorbt
+alpaca-trade-api
+python-dotenv
+nbformat

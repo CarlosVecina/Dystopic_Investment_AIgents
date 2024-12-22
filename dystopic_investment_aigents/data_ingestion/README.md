@@ -27,7 +27,7 @@ All the ETLs are orchestated by Mage. Also, the consumer is also there, while th
 
 - **Ticker price data (Batch with Mage):**
 
-For now, I developed an ingestion pipeline to daily ingest Open-High-Low-Close (OHLC) stocks data prices. 
+For now, I developed an ingestion pipeline to daily ingest Open-High-Low-Close (OHLC) stocks data prices.
 
 It ingestes raw data from a Financial API to Google Cloud Storage. Then some models are created in Google Big Query partitioned by date and clustered by ticker to easier and cost effective retrieval.
 With Mage, a backfill run has been done, to recreate the historical prices since Jan 2022.
@@ -133,7 +133,7 @@ First of all we need to create the data lake GCStorage and GCBig Query. We can e
 
 Once the data lake is created, you can start/stop the Mage ETL cloud instances with:
 
-`make mage-terraform-apply` 
+`make mage-terraform-apply`
 
 If you want to terminate the both previous Tf deployments, you should run:
 

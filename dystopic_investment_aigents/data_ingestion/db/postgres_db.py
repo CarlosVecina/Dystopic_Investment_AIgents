@@ -30,9 +30,7 @@ class PostgresDB:
         self.connection.execute(table.insert(), data)
 
     @classmethod
-    def insert_on_conflict_nothing(
-        cls, table, conn, keys, data_iter, index_elements
-    ):
+    def insert_on_conflict_nothing(cls, table, conn, keys, data_iter, index_elements):
         data = [dict(zip(keys, row)) for row in data_iter]
         stmt = (
             insert(table.table)

@@ -4,7 +4,11 @@ version = "0.1.0"
 description = ""
 authors = ["Carlos Vecina <carlosvecinatebar@gmail.com>"]
 readme = "README.md"
-packages = [{ include = "dystopic_investment_aigents" }]
+packages = [
+    { include = "dystopic_investment_aigents/agents" },
+    { include = "dystopic_investment_aigents/data_ingestion" },
+    { include = "dystopic_investment_aigents/utils" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.11"

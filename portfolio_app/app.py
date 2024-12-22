@@ -1,5 +1,3 @@
-import os
-
 import pandas as pd
 import plotly.express as p
 import plotly.graph_objs as go
@@ -7,11 +5,9 @@ import streamlit as st
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
-from dystopic_investment_aigents.data_ingestion.db.postgres_db import PostgresConfig
+from dystopic_investment_aigents.utils.db_utils import db_uri
 from dystopic_investment_aigents.utils.portfolio_utils import (
-    expand_df_dates,
-    generate_portfolio_evolution,
-)
+    expand_df_dates, generate_portfolio_evolution)
 
 # Base de datos
 load_dotenv()
@@ -59,16 +55,6 @@ st.markdown(
 
 st.write("<br></br>", unsafe_allow_html=True)
 col1 = st.columns([1])
-
-
-db_uri = PostgresConfig(
-    host=os.environ["SB_DDBB_HOST"],
-    port=os.environ["SB_DDBB_PORT"],
-    database=os.environ["SB_DDBB_DATABASE"],
-    user=os.environ["SB_DDBB_USER"],
-    password=os.environ["SB_DDBB_PWD"],
-).get_connection_string()
-
 
 @st.cache_data
 def load_data(query, db_uri):

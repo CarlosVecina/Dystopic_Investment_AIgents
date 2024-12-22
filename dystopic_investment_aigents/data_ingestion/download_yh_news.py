@@ -3,12 +3,8 @@ import os
 import sys
 from functools import partial
 
-from dystopic_investment_aigents.data_ingestion.db.financial_db import (
-    FinancialDB,
-)
-from dystopic_investment_aigents.data_ingestion.db.postgres_db import (
-    PostgresConfig,
-)
+from dystopic_investment_aigents.data_ingestion.db.financial_db import FinancialDB
+from dystopic_investment_aigents.data_ingestion.db.postgres_db import PostgresConfig
 from dystopic_investment_aigents.data_ingestion.downloader.yahoo_ticker_downloader import (
     YahooTickerDownloader,
 )
@@ -25,12 +21,8 @@ if __name__ == "__main__":
     db = FinancialDB(config=db_config)
 
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--top_n", help="All tickers or just the top ones", default=400
-    )
-    parser.add_argument(
-        "--dry-run", help="Keep or not in the database", default=False
-    )
+    parser.add_argument("--top_n", help="All tickers or just the top ones", default=400)
+    parser.add_argument("--dry-run", help="Keep or not in the database", default=False)
     args = parser.parse_args()
 
     downloader = YahooTickerDownloader(db=db)

@@ -1,7 +1,8 @@
 import os
-from sqlalchemy import create_engine
-from dystopic_investment_aigents.data_ingestion.db.postgres_db import PostgresConfig
 
+from sqlalchemy import create_engine
+
+from dystopic_investment_aigents.data_ingestion.db.postgres_db import PostgresConfig
 
 db_uri = PostgresConfig(
     host=os.environ["SB_DDBB_HOST"],
