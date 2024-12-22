@@ -7,7 +7,8 @@ readme = "README.md"
 packages = [
     { include = "dystopic_investment_aigents/agents" },
     { include = "dystopic_investment_aigents/data_ingestion" },
-    { include = "dystopic_investment_aigents/utils" }
+    { include = "dystopic_investment_aigents/utils" },
+    { include = "dystopic_investment_aigents/knowledge_base" }
 ]
 
 [tool.poetry.dependencies]
@@ -44,6 +45,7 @@ safetensors = ">=0.4.3"
 sentence-transformers = "^3.2.0"
 transformers = "^4.45.2"
 pre-commit = "^4.0.1"
+pydantic-settings = "^2.7.0"
 
 [tool.poe.tasks]
 ## PyTorch with CUDA 11.1. If PyTorch is imported first, importing Tensorflow will detect CUDA + cuDNN bundled with PyTorch

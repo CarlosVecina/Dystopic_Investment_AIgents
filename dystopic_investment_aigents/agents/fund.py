@@ -24,7 +24,7 @@ from dystopic_investment_aigents.agents.impl_agents.quant_trader_adal import (
     QuantTraderNaiveAdal,
 )
 from dystopic_investment_aigents.agents.impl_agents.analyst_adal import AnalystAdal
-from dystopic_investment_aigents.utils.db_utils import supabase_engine
+from dystopic_investment_aigents.knowledge_base.db import supabase_engine
 from dystopic_investment_aigents.utils.yaml_utils import YAMLUtils
 
 NEWS_TABLE = "news_yh"

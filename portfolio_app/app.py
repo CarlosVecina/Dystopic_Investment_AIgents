@@ -5,7 +5,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
-from dystopic_investment_aigents.utils.db_utils import db_uri
+from dystopic_investment_aigents.knowledge_base.db import db_uri
 from dystopic_investment_aigents.utils.portfolio_utils import (
     expand_df_dates, generate_portfolio_evolution)
 
