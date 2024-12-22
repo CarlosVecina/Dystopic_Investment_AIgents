@@ -13,6 +13,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.11"
+python-dateutil = "^2.9.0"
 python-dotenv = "^1.0.1"
 pydantic = "^2.7.0"
 pydantic-settings = "^2.7.0"
@@ -54,6 +55,7 @@ seaborn = "^0.13.2"
 ## Run with the command "poe force-cuda11"
 ## See https://github.com/python-poetry/poetry/issues/2543
 force-cuda11 = "pip install torch==2.3.0 xformers --index-url https://download.pytorch.org/whl/cu121"
+
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^4.0.1"

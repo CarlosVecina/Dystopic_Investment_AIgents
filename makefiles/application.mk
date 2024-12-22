@@ -9,4 +9,4 @@ run-app:
 	poetry run streamlit run portfolio_app/app.py
 
 run-fund:
-	poetry run python dystopic_investment_aigents/agents/fund.py 
+	poetry run python -m dystopic_investment_aigents.agents.fund

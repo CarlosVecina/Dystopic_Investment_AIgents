@@ -27,4 +27,6 @@ We are gathering all the financial context as possible, to make it available for
 
 ## 🕵️🕵️Agents
 
+If you want to run the agents, you can do it with `make install-agents` and `make run-fund`.
+
 - [Agents README](./dystopic_investment_aigents/agents/README.md)

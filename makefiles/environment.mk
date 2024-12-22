@@ -3,7 +3,6 @@
 
 install-agents:
 	poetry install --with agents
-	poe force-cuda11 
 
 install-data-ingestion:
 	poetry install --with data_ingestion
