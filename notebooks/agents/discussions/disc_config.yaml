@@ -1,0 +1,23 @@
+discusssion:
+  topic: "Investment in Trustworthy AI"
+  max_turns: 2
+  participants:
+    - agent:
+        personality:
+          mood: dystopic
+          risk_tolerance: 0.2
+        seniority: !openai_client_traceable {}
+        seniority_args:
+          model: gpt-4o-mini
+          temperature: 0.0
+      goal: "Analyze potential catastrophic risks and worst-case scenarios for the investment"
+
+    - agent2:
+        personality:
+          mood: optimistic
+          risk_tolerance: 0.8
+        seniority: !openai_client_traceable {}
+        seniority_args:
+          model: gpt-4o-mini
+          temperature: 0.0
+      goal: "Identify growth opportunities and potential market expansions"
