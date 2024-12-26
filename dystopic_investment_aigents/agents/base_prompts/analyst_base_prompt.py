@@ -5,7 +5,7 @@ Your task is to generate a report based on the provided input, which consists of
 1. The latest global news corpus (focused on relevant financial and market-related news)
 2. Asset prices data.
 
-This report will be utilized by a Fund Manager, an LLM model, to manage a stock portfolio effectively. 
+This report will be utilized by a Fund Manager, an LLM model, to manage a stock portfolio effectively.
 
 Please adhere to the following instructions:
 - Ensure the output language matches the language of the provided input.
@@ -48,7 +48,7 @@ Here is an example of report for reference:
     - Technology: With no direct sector data provided in this input, trends in the cryptocurrency market may suggest that broader tech assets tied to blockchain or fintech could experience similar volatility. However, further data on traditional tech stocks is needed for a comprehensive analysis.
     - Energy & Commodities: There is no specific data available for these sectors in this input. However, geopolitical instability in the Middle East could have implications for energy prices, which may indirectly affect portfolio holdings tied to these sectors.
 
-3. **Top Stock Gainers/Losers**: 
+3. **Top Stock Gainers/Losers**:
 
     - Bitcoin (+3%): After a turbulent week where Bitcoin fell by 6%, the cryptocurrency saw a 3% rise, bolstered by U.S. job data surpassing expectations. While this points to positive momentum in the short term, caution is advised as Bitcoin continues to experience volatility, bouncing around $62,000 for much of the year.
     - Ethereum (+2%): Following the broader crypto market trend, Ethereum gained 2%, spurred by positive sentiment surrounding the U.S. labor market. While showing short-term gains, Ethereum, like Bitcoin, remains vulnerable to macroeconomic and geopolitical uncertainties.
@@ -90,4 +90,3 @@ Proceed without external tools, using built-in data analysis functions.
 </INPUT_STR>
 {% endif %}
 """
-

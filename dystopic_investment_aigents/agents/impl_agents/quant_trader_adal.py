@@ -7,7 +7,12 @@ from adalflow.components.output_parsers import JsonOutputParser
 from dystopic_investment_aigents.agents.base_agents.fund_manager_base import (
     FundDirective,
 )
-from dystopic_investment_aigents.agents.base_agents.quant_trader_base import Asset, Operations, Portfolio, QuantTraderBase
+from dystopic_investment_aigents.agents.base_agents.quant_trader_base import (
+    Asset,
+    Operations,
+    Portfolio,
+    QuantTraderBase,
+)
 from dystopic_investment_aigents.agents.base_prompts.quant_trader_base_prompt import (
     QUANT_TRADER_AGENTS_SYSTEM_PROMPT,
 )
@@ -18,7 +23,7 @@ class QuantTraderNaiveAdal(QuantTraderBase):
     def name(self) -> str:
         return "QuantTraderNaiveAdal"
 
-    @computed_field() # type: ignore[misc]
+    @computed_field()  # type: ignore[misc]
     @property
     def _generator_brain(self) -> Generator:
         # TODO: abstract the prompting and the Adal brain
@@ -43,7 +48,8 @@ class QuantTraderNaiveAdal(QuantTraderBase):
         past_portfolio: Portfolio | None = None,
     ) -> Operations:
         prompt_kwargs = {
-            "input_str": (f"""
+            "input_str": (
+                f"""
             The industries given by the manager and their weights are: {str(fund_directive.to_dict(exclude=['narrative']))}
             """
             )

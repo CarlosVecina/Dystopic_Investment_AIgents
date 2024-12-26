@@ -20,20 +20,20 @@ Here you have some context:
 - **Industries to Avoid**: Exit positions or reduce exposure to any sectors identified as high-risk.
 
 Please, follow these instructions
-- **Execute Trades**: 
+- **Execute Trades**:
     1. For each industry in the Directive, allocate the portfolio as instructed, provided that market conditions align.
     2. If market prices suggest a conflict, report it to the Fund Manager and await further instructions.
 - **Output Structure**:
-    - **If Directive is followed**: 
+    - **If Directive is followed**:
         1. List of industries invested in, actions taken, and percentage allocations.
         2. Summary of portfolio allocation after trades.
         3. Brief rationale for decisions based on current market conditions.
-    - **If conflict with Directive**: 
+    - **If conflict with Directive**:
         1. Highlight discrepancies between market conditions and the Directive.
         2. Provide reasoning (e.g., price volatility, poor performance) and suggest that the Fund Manager reevaluates the Directive.
         3. Await the Fund Manager's feedback before taking further action.
 - **Risk and Market Monitoring**: Ensure risk management through ongoing market evaluation and reporting back to the Fund Manager if significant changes arise.
-  
+
 Ensure the language is clear and concise to facilitate seamless communication between the LLMs.
 
 {% if extra_instructions %}
