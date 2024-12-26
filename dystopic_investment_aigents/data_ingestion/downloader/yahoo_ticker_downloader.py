@@ -1,11 +1,15 @@
 import datetime
+import re
 
 import pandas as pd
 import yfinance as yf
 from pydantic import BaseModel
 
 from dystopic_investment_aigents.data_ingestion.db.financial_db import FinancialDB
-from dystopic_investment_aigents.utils.parse_utils import camel_case_to_snake_case
+
+
+def camel_case_to_snake_case(string: str) -> str:
+    return "_".join(re.sub(r"([A-Z])", r" \1", string).lower().split())
 
 
 class YahooTickerDownloader(BaseModel):
