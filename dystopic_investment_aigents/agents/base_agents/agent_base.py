@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Annotated, Any, Callable
+from typing import Annotated, Any, Callable, ClassVar
 
 from pydantic import BaseModel, Field
 from openai.types.chat.chat_completion import ChatCompletion
@@ -31,7 +31,16 @@ class Agent(BaseModel):
     seniority_args: dict[str, Any]
     memory: ConversationMemory
 
+    id: str = Field(default_factory=lambda: Agent._get_next_id())
+    _id_counter: ClassVar[int] = 1
+
     model_config = {"arbitrary_types_allowed": True}
+
+    @classmethod
+    def _get_next_id(cls, length: int = 4) -> str:
+        current_id = int(cls._id_counter)
+        cls._id_counter += 1
+        return str(current_id).zfill(length)
 
     def discuss(self, message: str) -> str:
         response: ChatCompletion = self.seniority.sync_client.chat.completions.create(
