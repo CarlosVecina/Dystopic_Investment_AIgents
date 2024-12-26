@@ -1,6 +1,8 @@
 import os
 import pathlib
 from datetime import datetime
+from typing import Literal
+import logging
 
 from dotenv import load_dotenv
 
@@ -13,6 +15,7 @@ from sqlalchemy import Engine, text
 from dystopic_investment_aigents.agents.base_agents.fund_manager_base import (
     FundDirective,
 )
+from dystopic_investment_aigents.agents.discussion import Discussion
 from dystopic_investment_aigents.agents.impl_agents.fund_manager_adal import (
     FundManagerAdal,
 )
@@ -31,12 +34,18 @@ NEWS_TABLE = "news_yh"
 NEWS_TABLE_DATE_COL = "created_at"
 NEWS_TABLE_CONTENT_COL = "related_tickers"
 
+logger = logging.getLogger(__name__)
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+
 load_dotenv()
 
 
 class Fund(BaseModel):
     name: str
     description: str
+    type: Literal["rag", "discussion"]
     manager: FundManagerAdal
     analyst: AnalystAdal | list[AnalystAdal]
     trader: QuantTraderNaiveAdal
@@ -169,45 +178,88 @@ class Fund(BaseModel):
             connection.execute(portfolio_table.insert().values(data_to_insert))
             connection.commit()
 
-        print(f"Final portfolio persisted with {len(data_to_insert)} operations.")
+        logger.info(f"Final portfolio persisted with {len(data_to_insert)} operations.")
 
     @traceable
     def run(self) -> None:
         # 1. Analysts analyze the market
+        logger.info("Starting market analysis...")
         df_news = self._get_lastest_news(
             start_date=datetime(2024, 1, 1),
             end_date=datetime(2024, 8, 31),
             related_ids=["AAPL"],
         )
+        logger.info(f"Retrieved {len(df_news)} news articles")
+
         # Filter out null values and extract 'body' column content
         news_content = df_news["body"].dropna().to_string(index=False)
+        logger.debug("Processed news content")
 
         if isinstance(self.analyst, AnalystAdal):
             self.analyst = [self.analyst]
 
+        logger.info("Generating analyst reports...")
         list_analysis = []
-        for analyst in self.analyst:
+        for i, analyst in enumerate(self.analyst):
+            logger.debug(f"Analyst {i+1}/{len(self.analyst)} generating report...")
             list_analysis.append(analyst.generate_report(news_content))
+        logger.info(f"Generated {len(list_analysis)} analyst reports")
 
         # 2. Analysts provide fund manager with analysis
+        logger.info("Getting last directive...")
         last_directive = self._get_last_directive()
-        directive = self.manager.create_directive(
-            past_fund_directive=last_directive, reports=list_analysis
-        )
+
+        # TODO: tidy up fund execution
+        if self.type == "discussion":
+            logger.info("Starting discussion between analysts and fund manager...")
+            discussion = Discussion(
+                topic=f"Clarify the fund's strategy. Remember that the fund {self.description}",
+                max_turns=3,
+                participants=[
+                    (
+                        self.manager,
+                        f"Clarify the fund's strategy. Inquisitive questions to analysts. The last directive is: {last_directive}",
+                    )
+                ]
+                + [
+                    (
+                        analyst,
+                        f"Defend your analysis but be open to questions. Your analysis is: {list_analysis[i]}",
+                    )
+                    for i, analyst in enumerate(self.analyst)
+                ],
+            )()
+            logger.info("Discussion completed")
+            directive = self.manager.create_directive(
+                past_fund_directive=last_directive,
+                reports=list_analysis,
+                context_summary=f"This is a discussion you had with the analysts {discussion}",
+            )
+            breakpoint()
+        else:
+            logger.info("Creating fund directive without discussion...")
+            directive = self.manager.create_directive(
+                past_fund_directive=last_directive, reports=list_analysis
+            )
+        logger.info("Persisting new directive...")
         self._persist_directive(directive)
 
         # 3. Trader executes portfolio
+        logger.info("Getting last portfolio state...")
         last_portfolio = self._get_last_portfolio()
+        logger.info("Executing trading operations...")
         operations: GeneratorOutput[Operations] = self.trader.operate(
             fund_directive=directive, past_portfolio=last_portfolio
         )
         if not self.dry_run:
             try:
+                logger.info("Persisting final portfolio...")
                 self._persist_final_portfolio(
                     operations.data.final_portfolio.allocation
                 )
+                logger.info("Portfolio successfully persisted")
             except Exception as e:
-                print(f"Error persisting final portfolio: {e}")
+                logger.error(f"Error persisting final portfolio: {e}")
 
         return operations
 

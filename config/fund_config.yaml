@@ -1,5 +1,6 @@
 name: Dystopic Fund
-description: A fund that invests in the future
+description: A fund that invests in a dystopic orwellian or huxleyan future
+type: discussion
 manager:
   personality:
     mood: optimistic

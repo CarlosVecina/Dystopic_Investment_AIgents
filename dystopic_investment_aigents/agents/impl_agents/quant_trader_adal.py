@@ -57,7 +57,7 @@ class QuantTraderNaiveAdal(QuantTraderBase):
         if past_portfolio:
             prompt_kwargs["portfolio"] = past_portfolio.model_dump_json()
 
-        self._generator_brain.print_prompt(**prompt_kwargs)
+        # self._generator_brain.print_prompt(**prompt_kwargs)
         response = self._generator_brain.call(prompt_kwargs=prompt_kwargs)
 
         return response

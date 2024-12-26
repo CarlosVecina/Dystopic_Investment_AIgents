@@ -65,7 +65,7 @@ You will be provider with those last week inputs, and you should generate a news
     def create_newsletter(self, context: str) -> Newsletter:
         prompt_kwargs = {"input_str": f"{context}"}
 
-        self._generator_brain.print_prompt(**prompt_kwargs)
+        # self._generator_brain.print_prompt(**prompt_kwargs)
         response = self._generator_brain.call(prompt_kwargs=prompt_kwargs)
 
         return response

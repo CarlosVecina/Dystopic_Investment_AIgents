@@ -47,7 +47,7 @@ class AnalystAdal(AnalystBase):
                 formatted_extra_instructions += "- " + inst + " \n"
             prompt_kwargs["extra_instructions"] = formatted_extra_instructions
 
-        self._generator_brain.print_prompt(**prompt_kwargs)
+        # self._generator_brain.print_prompt(**prompt_kwargs)
         response = self._generator_brain.call(prompt_kwargs=prompt_kwargs)
         return response.data
 

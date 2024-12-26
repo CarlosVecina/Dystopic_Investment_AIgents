@@ -53,7 +53,7 @@ class FundManagerAdal(FundManagerBase):
                 f"Here it is some experienced analyst reports: REPORT: {' REPORT: '.join(reports)}"
             )
 
-        self._generator_brain.print_prompt(**prompt_kwargs)
+        # self._generator_brain.print_prompt(**prompt_kwargs)
         response = self._generator_brain.call(prompt_kwargs=prompt_kwargs)
 
         return response.data

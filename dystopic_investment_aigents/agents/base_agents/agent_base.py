@@ -29,7 +29,7 @@ class Agent(BaseModel):
     toolset: list[Callable[[Any], Any]] | None = None
     seniority: OpenAIClientTraceable
     seniority_args: dict[str, Any]
-    memory: ConversationMemory
+    memory: ConversationMemory = ConversationMemory()
 
     id: str = Field(default_factory=lambda: Agent._get_next_id())
     _id_counter: ClassVar[int] = 1
