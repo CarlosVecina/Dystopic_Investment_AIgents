@@ -6,8 +6,10 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
 from dystopic_investment_aigents.knowledge_base.db import db_uri
-from dystopic_investment_aigents.utils.portfolio_utils import (
-    expand_df_dates, generate_portfolio_evolution)
+from portfolio_app.utils.portfolio_utils import (
+    expand_df_dates,
+    generate_portfolio_evolution,
+)
 
 # Base de datos
 load_dotenv()
@@ -55,6 +57,7 @@ st.markdown(
 
 st.write("<br></br>", unsafe_allow_html=True)
 col1 = st.columns([1])
+
 
 @st.cache_data
 def load_data(query, db_uri):
