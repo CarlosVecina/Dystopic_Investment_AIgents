@@ -25,3 +25,6 @@ help:
 	@echo "Data Collection:"
 	@echo "  run-crunchbase-scraper      - Run Crunchbase data scraper"
 	@echo "  start-websocket-kafka-producer - Start financial news websocket producer"
+
+pre-commit:
+	poetry run pre-commit run --all-files
