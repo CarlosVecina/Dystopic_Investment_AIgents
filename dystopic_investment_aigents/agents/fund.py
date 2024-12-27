@@ -235,7 +235,6 @@ class Fund(BaseModel):
                 reports=list_analysis,
                 context_summary=f"This is a discussion you had with the analysts {discussion}",
             )
-            breakpoint()
         else:
             logger.info("Creating fund directive without discussion...")
             directive = self.manager.create_directive(
