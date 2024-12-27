@@ -50,10 +50,10 @@ class LLMJudge(BaseModel):
             Please evaluate the quality of the following prediction compared to the reference on a scale of 1-10,
             where 1 is completely wrong/irrelevant and 10 is perfect/exact match.
             {{ context if context else ""}}
-            
+
             Reference: {{ ref }}
             Prediction: {{ pred }}
-            
+
             Output format:
             {
                 "score": <float {{ min_score }} low quality to {{ max_score }} high quality>,
@@ -85,7 +85,7 @@ class LLMJudge(BaseModel):
         if (not isinstance(predictions, list)) | (not isinstance(references, list)):
             raise ValueError("Predictions and references must be lists.")
 
-        judge_responses: JudgeResponses = []
+        judge_responses = JudgeResponses(root=[])
         for pred, ref in zip(predictions, references):
             response = completion(
                 model=self.model,
