@@ -9,7 +9,7 @@ install-data-ingestion:
 
 install:
 	poetry install --with dev
-	poe force-cuda11 
+	poe force-cuda11
 
 generate-requirements:
 	poetry export -f requirements.txt --output requirements.txt

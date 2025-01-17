@@ -8,7 +8,9 @@ logging.basicConfig(level=logging.INFO)
 
 class Discussion(BaseModel):
     topic: str
-    rules: str | None = "Conciseness is key. You should not repeat the same message multiple times or abuse introduction formulas."
+    rules: str | None = (
+        "Conciseness is key. You should not repeat the same message multiple times or abuse introduction formulas."
+    )
     max_turns: int = 10
     participants: list[tuple[Agent, str]]
 
@@ -19,7 +21,7 @@ class Discussion(BaseModel):
         "arbitrary_types_allowed": True,
     }
 
-    def __call__(self) -> list[tuple[str, str]]:        
+    def __call__(self) -> list[tuple[str, str]]:
         logging.info(f"Starting discussion on topic: {self.topic}")
         context = (
             f"You are in a conversation with other participants. "
@@ -36,7 +38,9 @@ class Discussion(BaseModel):
         while self._current_turn < self.max_turns:
             logging.info(f"Starting turn {self._current_turn + 1}/{self.max_turns}")
             for agent, agent_goal in self.participants:
-                logging.debug(f"Agent with mood {agent.personality.mood.value} is thinking...")
+                logging.debug(
+                    f"Agent with mood {agent.personality.mood.value} is thinking..."
+                )
                 if self._current_turn == self.max_turns - 1:
                     agent_goal += "You should summarize the discussion as this is the final round."
                 agent_context = (
@@ -67,7 +71,11 @@ class Discussion(BaseModel):
             agent_id = entry[0]
             message = entry[1]
             if agent_id == agent.id:
-                formatted.append(f"[Message number: {i+1} - Participant: 'YOU']: {message}")
+                formatted.append(
+                    f"[Message number: {i+1} - Participant: 'YOU']: {message}"
+                )
             else:
-                formatted.append(f"[Message number: {i+1} - Participant: '{agent_id}']: {message}")
+                formatted.append(
+                    f"[Message number: {i+1} - Participant: '{agent_id}']: {message}"
+                )
         return "\n".join(formatted)

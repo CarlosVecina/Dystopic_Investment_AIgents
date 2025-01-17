@@ -3,6 +3,7 @@ name: Download and insert daily news
 on:
   schedule:
     - cron: "0 7 * * *"    #runs at 07:00 UTC everyday
+  workflow_dispatch:
 
 jobs:
   build:

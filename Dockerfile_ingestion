@@ -18,7 +18,7 @@ COPY ./dystopic_investment_aigents ${USER_CODE_PATH}dystopic_investment_aigents/
 COPY ./Makefile ${USER_CODE_PATH}Makefile
 COPY ./pyproject.toml ${USER_CODE_PATH}pyproject.toml
 COPY ./poetry.lock ${USER_CODE_PATH}poetry.lock
-COPY ./.env ${USER_CODE_PATH}.env 
+COPY ./.env ${USER_CODE_PATH}.env
 
 COPY --chown=${USER_CODE_PATH}:${USER_CODE_PATH} poetry.lock pyproject.toml README.md Makefile \
 	${USER_CODE_PATH}

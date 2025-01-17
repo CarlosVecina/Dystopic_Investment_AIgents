@@ -15,4 +15,4 @@ mage-terraform-apply:
 
 mage-terraform-destroy:
 	cd dystopic_investment_aigents/data_ingestion/terraform/mage_terraform/
-	terraform destroy 
+	terraform destroy

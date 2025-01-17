@@ -3,7 +3,7 @@ services:
   magic:
     image: mageai/mageai:latest
     entrypoint: ["/bin/sh","-c"]
-    command:     
+    command:
     - |
         pip3 install -r ${USER_CODE_PATH}requirements.txt
         mage start ${PROJECT_NAME}
@@ -90,7 +90,7 @@ services:
       "
     networks:
       - my-net
-  
+
   kafka-ui:
     image: provectuslabs/kafka-ui
     container_name: kafka-ui
@@ -104,7 +104,7 @@ services:
       - my-net
 
   ingestion-news:
-    build: 
+    build:
       context: .
       dockerfile: ./Dockerfile_ingestion
     depends_on:
